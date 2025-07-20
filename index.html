@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>METRPC - Votre Expert en Réparation d'Ordinateurs</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/menu-burger.css" />
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="container nav-container">
+      <div class="logo-block">
+        <img src="images/Metrpc.png" alt="Logo METRPC" class="logo">
+        <span class="brand">METRPC</span>
+      </div>
+      <div class="mobile-menu">
+        <button class="menu-btn" aria-label="Menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+      <nav class="nav-menu">
+        <ul>
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="index.html#QuiNousSommes">Qui sommes-nous</a></li>
+          <li><a href="index.html#process">Fonctionnement</a></li>
+          <li><a href="index.html#services">Services</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero fade-in">
+    <div class="container">
+      <h1>Réparation & Assistance Informatique à Reims</h1>
+      <a href="#devis" class="btn">Demander un devis</a>
+    </div>
+  </section>
+
+  <!-- À propos -->
+  <section id="QuiNousSommes" class="QuiNousSommes fade-in">
+    <div class="container">
+      <h2>Qui sommes-nous ?</h2>
+      <p>METRPC est une entreprise locale basée à Bétheny, spécialisée dans la réparation et l'assistance informatique à domicile ou en atelier. Fondée par un passionné d'informatique, notre mission est de vous offrir un service rapide, fiable et accessible.</p>
+      <p>Nous intervenons sur Reims et ses environs pour tout type de dépannage : ordinateur portable, PC de bureau, optimisation système, suppression de virus, etc.</p>
+    </div>
+  </section>
+
+  <!-- Fonctionnement -->
+  <section id="process" class="process fade-in">
+    <div class="container">
+      <h2>Comment ça fonctionne</h2>
+      <div class="steps">
+        <div class="step"><strong>1.</strong> Décrivez votre problème</div>
+        <div class="step"><strong>2.</strong> Diagnostic et devis</div>
+        <div class="step"><strong>3.</strong> Intervention rapide à domicile ou en atelier</div>
+        <div class="step"><strong>4.</strong> Conseils & satisfaction</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section id="services" class="services fade-in">
+    <div class="container">
+      <h2>Nos services</h2>
+      <div class="service-list">
+        <div class="card fade-in">Suppression de virus et optimisation</div>
+        <div class="card fade-in">Réparation matérielle (écran, disque, etc.)</div>
+        <div class="card fade-in">Installation de Windows / logiciels</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Témoignages -->
+  <section class="testimonials fade-in">
+    <div class="container">
+      <h2>Ce que disent nos clients</h2>
+      <blockquote>"Technicien très réactif, réparation rapide et efficace. Je recommande vivement !"</blockquote>
+      <cite>– Claire D.</cite>
+    </div>
+  </section>
+
+  <!-- Devis-->
+  <section id="devis" class="devis fade-in">
+    <div class="container">
+      <form class="devis-form" action="traitement.php" method="post">
+        <h2>Demande de devis de réparation</h2>
+      
+        <label for="nom">Nom :</label>
+        <input type="text" id="nom" name="nom" required>
+      
+        <label for="email">Email :</label>
+        <input type="email" id="email" name="email" required>
+      
+        <label for="telephone">Téléphone :</label>
+        <input type="tel" id="telephone" name="telephone" required>
+      
+        <label for="typeAppareil">Type d'appareil :</label>
+        <select id="typeAppareil" name="typeAppareil" required>
+          <option value="">-- Choisissez --</option>
+          <option value="ordinateur">Ordinateur</option>
+          <option value="portable">PC Portable</option>
+          <option value="tablette">Tablette</option>
+          <option value="autre">Autre</option>
+        </select>
+      
+        <label for="probleme">Description du problème :</label>
+        <textarea id="probleme" name="probleme" rows="4" placeholder="Décrivez le souci rencontré..." required></textarea>
+      
+        <button type="submit">Envoyer la demande</button>
+      </form>
+      
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="contact fade-in">
+    <div class="container">
+      <h2>Contactez-nous</h2>
+      <p>📞 06 78 44 23 48</p>
+      <p>📧 <a href="mailto:metrpc.pro@outlook.fr">metrpc.pro@outlook.fr</a></p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 METRPC</p>
+      <p>
+        <a href="#">Mentions légales</a> | 
+        <a href="cgv.html">Conditions générales de vente</a> | 
+        <a href="#">Politique de confidentialité</a>
+      </p>
+    </div>
+  </footer>
+
+  <script src="javascript/script.js"></script>
+</body>
+</html>

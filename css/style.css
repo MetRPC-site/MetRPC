@@ -1,0 +1,433 @@
+:root {
+    --bleu-metrpc: #2D72C5;
+    --noir: #2B2B2B;
+    --blanc: #FFFFFF;
+    --gris-clair: #F5F5F5;
+    --accent: #FF6B35;
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Segoe UI', sans-serif;
+    color: var(--noir);
+    background-color: var(--blanc);
+    line-height: 1.6;
+  }
+  
+  a {
+    color: var(--bleu-metrpc);
+    text-decoration: none;
+  }
+  
+  .container {
+    width: 90%;
+    max-width: 1100px;
+    margin: auto;
+  }
+  
+  /* ===== HEADER ===== */
+  header {
+    background-color: var(--bleu-metrpc);
+    padding: 20px 0;
+    color: var(--blanc);
+    position: relative;
+  }
+  
+  .nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+  }
+  
+  .logo-block {
+    display: flex;
+    align-items: center;
+  }
+  
+  .logo {
+    width: 50px;
+    height: auto;
+    margin-right: 10px;
+  }
+  
+  .brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+  nav ul {
+    display: flex;
+    list-style: none;
+  }
+  
+  nav ul li {
+    margin-left: 20px;
+  }
+  
+  nav ul li a {
+    color: white;
+    font-weight: 500;
+  }
+
+  /* Menu burger */
+  .mobile-menu {
+    display: none;
+  }
+
+  .menu-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 1000;
+    position: relative;
+  }
+
+  .menu-btn span {
+    display: block;
+    width: 25px;
+    height: 2px;
+    background-color: white;
+    margin: 6px 0;
+    transition: all 0.3s ease;
+    position: relative;
+    border-radius: 2px;
+  }
+
+  .menu-btn.active span:nth-child(1) {
+    transform: translate(0, 7px) rotate(45deg);
+  }
+
+  .menu-btn.active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .menu-btn.active span:nth-child(3) {
+    transform: translate(0, -7px) rotate(-45deg);
+  }
+
+  .nav-menu {
+    display: block;
+  }
+
+  @media screen and (max-width: 768px) {
+    .mobile-menu {
+      display: block;
+    }
+
+    .nav-menu {
+      display: none;
+      position: absolute;
+      top: calc(100% + 15px);
+      right: 0;
+      background-color: var(--bleu-metrpc);
+      padding: 15px 0;
+      text-align: center;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      margin-top: 10px;
+    }
+
+    .nav-menu.active {
+      display: block;
+    }
+
+    .nav-menu ul {
+      flex-direction: column;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-menu ul li {
+      margin: 8px 0;
+    }
+
+    .nav-menu ul li a {
+      display: block;
+      padding: 8px 20px;
+      color: white;
+      font-size: 1rem;
+      text-decoration: none;
+      border-radius: 4px;
+    }
+
+    .nav-menu ul li a:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+
+  }
+
+
+  
+  /* ===== HERO SECTION ===== */
+
+  .hero {
+    background-image: url(../images/reparationOrdi.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    color: white;
+    text-align: center;
+    padding: 80px 20px;
+  }
+
+  .hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+  }
+
+  .hero p {
+    font-size: 1.2rem;
+  }
+
+  @media screen and (max-width: 768px) {
+    .hero {
+      background-size: cover;
+      background-position: center center;
+      padding: 60px 15px;
+    }
+
+    .hero h1 {
+      font-size: 2rem;
+    }
+
+    .hero p {
+      font-size: 1rem;
+    }
+  }
+  
+  .btn {
+    margin-top: 25px;
+    padding: 12px 28px;
+    background-color: var(--bleu-metrpc);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+    display: inline-block;
+    text-decoration: none;
+  }
+  
+  .btn:hover {
+    background-color: #1a1a1a;
+  }
+  
+  /* ===== PROCESS / ÉTAPES ===== */
+  .process {
+    background-color: var(--gris-clair);
+    padding: 60px 20px;
+  }
+  
+  .process h2 {
+    text-align: center;
+    color: var(--bleu-metrpc);
+    margin-bottom: 30px;
+  }
+  
+  .steps {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+  }
+  
+  .step {
+    flex: 1;
+    min-width: 200px;
+    background: white;
+    padding: 20px;
+    text-align: center;
+    border-radius: 8px;
+    font-weight: 500;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  }
+  
+  /* ===== SERVICES ===== */
+  .services {
+    background-color: white;
+    padding: 60px 20px;
+  }
+  
+  .services h2 {
+    text-align: center;
+    color: var(--bleu-metrpc);
+    margin-bottom: 30px;
+  }
+  
+  .service-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+  }
+  
+  .card {
+    background-color: var(--gris-clair);
+    padding: 25px;
+    border-radius: 8px;
+    transition: transform 0.3s;
+    text-align: center;
+    font-weight: 500;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+    background-color: #eaeaea;
+  }
+  
+  /* ===== Qui sommes-nous ? ===== */
+  .QuiNousSommes {
+    padding: 60px 20px;
+    background-color: var(--white);
+    text-align: center;
+  }
+  
+  .QuiNousSommes h2 {
+    color: var(--bleu-metrpc);
+    margin-bottom: 20px;
+  }
+  
+  .QuiNousSommes p {
+    font-size: 1.1rem;
+    margin: 10px 0;
+  }
+  
+  /* ===== TÉMOIGNAGES ===== */
+  .testimonials {
+    padding: 60px 20px;
+    background-color: var(--gris-clair);
+    text-align: center;
+  }
+  
+  .testimonials h2 {
+    color: var(--bleu-metrpc);
+    margin-bottom: 20px;
+  }
+  
+  .testimonials blockquote {
+    font-style: italic;
+    margin: 20px auto;
+    max-width: 600px;
+  }
+  
+  .testimonials cite {
+    display: block;
+    font-size: 0.9rem;
+    margin-top: 10px;
+    color: #555;
+  }
+
+  /* ===== FORMULAIRE DE DEVIS ===== */
+.devis-form {
+  background-color: var(--gris-clair);
+  padding: 40px;
+  border-radius: 8px;
+  max-width: 600px;
+  margin: 40px auto;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.devis-form h2 {
+  color: var(--bleu-metrpc);
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.devis-form label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: var(--noir);
+}
+
+.devis-form input[type="text"],
+.devis-form input[type="email"],
+.devis-form input[type="tel"],
+.devis-form select,
+.devis-form textarea {
+  width: 100%;
+  padding: 10px 12px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-family: inherit;
+  background-color: white;
+  transition: border-color 0.3s;
+}
+
+.devis-form input:focus,
+.devis-form select:focus,
+.devis-form textarea:focus {
+  outline: none;
+  border-color: var(--bleu-metrpc);
+}
+
+.devis-form button[type="submit"] {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  background-color: var(--bleu-metrpc);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.devis-form button[type="submit"]:hover {
+  background-color: var(--noir);
+}
+
+  
+  /* ===== CONTACT ===== */
+  .contact {
+    padding: 60px 20px;
+    background-color: var(--gris-clair);
+    text-align: center;
+  }
+  
+  .contact h2 {
+    color: var(--bleu-metrpc);
+    margin-bottom: 20px;
+  }
+  
+  .contact p, .contact a {
+    font-size: 1.1rem;
+    margin: 8px 0;
+    color: var(--noir);
+  }
+  
+  /* ===== FOOTER ===== */
+  footer {
+    background-color: var(--bleu-metrpc);
+    color: white;
+    text-align: center;
+    padding: 20px;
+    font-size: 0.9rem;
+  }
+
+  footer a {
+    color: white;
+  }
+
+  /* Animation fade-in */
+.invisible {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+  
+  .visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
