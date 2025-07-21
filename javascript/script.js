@@ -51,9 +51,25 @@ if (menuBtn && navMenu) {
 // Animation bouton (ex: ondulation légère)
 document.querySelectorAll('.btn').forEach(button => {
     button.addEventListener('mouseenter', () => {
-        button.style.transform = 'scale(1.05)';
+        button.style.transform = 'scale(1)';
     });
     button.addEventListener('mouseleave', () => {
         button.style.transform = 'scale(1)';
     });
 });
+
+
+// Vérifier le paramètre d'URL pour afficher un message de confirmation ou d'erreur
+    document.addEventListener('DOMContentLoaded', function() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const status = urlParams.get('status');
+      
+      if (status === 'success') {
+        alert('Votre demande de devis a bien été envoyée ! Nous vous contacterons rapidement.');
+        // Nettoyer l'URL sans recharger la page
+        window.history.replaceState({}, document.title, window.location.pathname);
+      } else if (status === 'error') {
+        alert('Une erreur est survenue lors de l\'envoi de votre demande. Veuillez réessayer ou nous contacter directement par téléphone.');
+        window.history.replaceState({}, document.title, window.location.pathname);
+      }
+    });

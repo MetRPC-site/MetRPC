@@ -6,133 +6,6 @@
   --accent: #FF6B35;
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: 'Segoe UI', sans-serif;
-  color: var(--noir);
-  background-color: var(--blanc);
-  line-height: 1.6;
-}
-
-a {
-  color: var(--bleu-metrpc);
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
-.container {
-  width: 90%;
-  max-width: 1100px;
-  margin: auto;
-}
-
-/* ===== HEADER ===== */
-header {
-  background-color: var(--bleu-metrpc);
-  padding: 20px 0;
-  color: var(--blanc);
-}
-
-.nav-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: relative;
-}
-
-.logo-block {
-  display: flex;
-  align-items: center;
-}
-
-.logo {
-  width: 50px;
-  height: auto;
-  margin-right: 10px;
-}
-
-.brand {
-  font-size: 1.5rem;
-  font-weight: bold;
-}
-
-nav {
-  display: flex;
-  align-items: center;
-}
-
-nav ul {
-  display: flex;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-nav ul li {
-  margin: 0;
-}
-
-nav ul li a {
-  color: white;
-  font-weight: 500;
-  text-decoration: none;
-  padding: 8px 15px;
-  border-radius: 4px;
-}
-
-nav ul li a:hover {
-  background-color: rgba(255, 255, 255, 0.1);
-}
-
-.mobile-menu {
-  display: none;
-}
-
-.menu-btn {
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 10px;
-  z-index: 1000;
-  position: relative;
-}
-
-.menu-btn span {
-  display: block;
-  width: 25px;
-  height: 2px;
-  background-color: white;
-  margin: 6px 0;
-  transition: all 0.3s ease;
-  position: relative;
-  border-radius: 2px;
-}
-
-.menu-btn.active span:nth-child(1) {
-  transform: translate(0, 7px) rotate(45deg);
-}
-
-.menu-btn.active span:nth-child(2) {
-  opacity: 0;
-}
-
-.menu-btn.active span:nth-child(3) {
-  transform: translate(0, -7px) rotate(-45deg);
-}
-
-nav ul li a:hover {
-  text-decoration: underline;
-}
-
-
 h1 {
   color: var(--bleu-metrpc);
   font-size: 2.4rem;
@@ -175,9 +48,6 @@ strong {
 }
 
 @media (max-width: 600px) {
-  body {
-    padding: 20px 10px;
-  }
   .container {
     padding: 20px 25px;
   }
@@ -187,30 +57,4 @@ strong {
   h2 {
     font-size: 1.2rem;
   }
-}
-
-
-/* ===== FOOTER ===== */
-footer {
-  background-color: var(--bleu-metrpc);
-  color: white;
-  text-align: center;
-  padding: 20px;
-  font-size: 0.9rem;
-}
-
-footer a {
-  color: white;
-}
-
-/* Animation fade-in */
-.invisible {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
-}
-
-.visible {
-  opacity: 1;
-  transform: translateY(0);
 }
