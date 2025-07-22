@@ -4,17 +4,28 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>METRPC - Conditions Générales de Vente</title>
-  <link rel="stylesheet" href="css/cgv.css" />
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Custom Styles -->
   <link rel="stylesheet" href="css/content.css" />
+  <link rel="stylesheet" href="css/cgv.css" />
 </head>
 <body>
 
   <!-- Header -->
-  <header>
+  <header class="header-modern">
     <div class="container nav-container">
       <div class="logo-block">
         <img src="images/Metrpc.png" alt="Logo METRPC" class="logo">
         <span class="brand">METRPC</span>
+        <span class="tagline">Solutions IT</span>
       </div>
       <div class="mobile-menu">
         <button class="menu-btn" aria-label="Menu">
@@ -25,130 +36,595 @@
       </div>
       <nav class="nav-menu">
         <ul>
-          <li><a href="index.html">Accueil</a></li>
-          <li><a href="index.html#QuiNousSommes">Qui sommes-nous</a></li>
-          <li><a href="index.html#process">Fonctionnement</a></li>
-          <li><a href="index.html#services">Services</a></li>
-          <li><a href="index.html#contact">Contact</a></li>
+          <li><a href="index.html"><i class="fas fa-home"></i> Accueil</a></li>
+          <li><a href="index.html#QuiNousSommes"><i class="fas fa-users"></i> Qui sommes-nous</a></li>
+          <li><a href="index.html#process"><i class="fas fa-cogs"></i> Fonctionnement</a></li>
+          <li><a href="index.html#services"><i class="fas fa-tools"></i> Services</a></li>
+          <li><a href="index.html#contact"><i class="fas fa-envelope"></i> Contact</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
-  <!-- cgv -->
-  <main class="container cgv-container">
-    <h1>Conditions Générales de Vente (CGV) - METRPC</h1>
-    <p><strong>Date :</strong> 10/07/2025</p>
-    <p><strong>MetRPC</strong><br />
-       Statut : Micro-entreprise<br />
-       Adresse : 15 rue Louise Elisabeth Vigée Lebrun, 51450 Bétheny<br />
-       E-mail : <a href="mailto:metrpc.pro@outlook.fr">metrpc.pro@outlook.fr</a><br />
-       SIRET : 94075849300016
-    </p>
-
-    <h2>1. Objet</h2>
-    <p>Les présentes Conditions Générales de Vente (CGV) s'appliquent à toutes les prestations réalisées par MetRPC, entreprise individuelle déclarée en micro-entreprise, spécialisée dans la réparation, maintenance et assistance informatique, sans vente de matériel.</p>
-
-    <h2>2. Statut et TVA</h2>
-    <p>L'entreprise est soumise au régime fiscal de la micro-entreprise.<br />
-    TVA non applicable - article 293 B du Code général des impôts.<br />
-    Tous les prix indiqués sont nets de taxes.</p>
-
-    <h2>3. Prestations proposées</h2>
-    <p>L'entreprise propose uniquement des services incluant :</p>
-    <ul>
-      <li>Diagnostic et dépannage informatique</li>
-      <li>Réinstallation de systèmes d'exploitation</li>
-      <li>Suppression de virus et malwares</li>
-      <li>Sauvegarde et récupération de données</li>
-      <li>Optimisation système</li>
-      <li>Assistance utilisateur</li>
-      <li>Maintenance logicielle</li>
-    </ul>
-    <p>Aucune vente de pièces ou de matériel n'est effectuée.</p>
-
-    <h2>4. Devis et diagnostic</h2>
-    <p>Tout appareil déposé fait l'objet d'un diagnostic préalable pour évaluer le problème et établir un devis.<br />
-    Le diagnostic est facturé 15 € TTC (TVA non applicable) si le client ne donne pas suite à la réparation.</p>
-    <ul>
-      <li>En cas d'acceptation du devis, ces 15 € sont déduits du prix total.</li>
-      <li>En cas de refus ou d'absence de réponse sous 30 jours, les 15 € restent dus.</li>
-      <li>La validation du devis peut être écrite, orale ou électronique.</li>
-    </ul>
-
-    <h2>5. Sauvegarde des données - Responsabilité du client</h2>
-    <p>Avant toute intervention, le client est fortement invité à sauvegarder ses données personnelles.<br />
-    L'entreprise propose une prestation optionnelle de sauvegarde, tarifée selon le cas.<br />
-    En cas de refus de cette prestation, le client accepte expressément de dégager l'entreprise de toute responsabilité en cas de perte de fichiers, données, logiciels, ou paramètres.<br />
-    Aucune réclamation ne pourra être acceptée si cette clause a été refusée ou ignorée.</p>
-
-    <h2>6. Conditions d'intervention</h2>
-    <p>Les prestations sont réalisées :</p>
-    <ul>
-      <li>Chez le client</li>
-      <li>En atelier, par récupération du matériel (sans accueil des clients à mon domicile)</li>
-      <li>À distance (sous conditions techniques)</li>
-    </ul>
-    <p>Les délais d'intervention sont indicatifs, non contractuels. Aucun retard ne peut justifier une remise ou annulation sauf engagement écrit.</p>
-
-    <h2>7. Tarifs et règlement</h2>
-    <p>Les prix sont indiqués en euros nets (TVA non applicable).<br />
-    Le paiement est exigible immédiatement après la prestation, par :</p>
-    <ul>
-      <li>Carte bancaire via terminal SumUp</li>
-      <li>Lien de paiement SumUp</li>
-      <li>Espèces</li>
-      <li>Chèques</li>
-    </ul>
-    <p>En cas de non-paiement, l'entreprise se réserve le droit de rétention de l'appareil (article 2286 du Code civil) jusqu'au règlement complet.</p>
-
-    <h2>8. Garantie des prestations</h2>
-    <p>Les prestations sont garanties 15 jours, uniquement pour le même dysfonctionnement.</p>
-    <p><strong>Exclusions :</strong></p>
-    <ul>
-      <li>Nouveaux problèmes non liés</li>
-      <li>Infections ultérieures (virus, logiciels)</li>
-      <li>Mauvaise manipulation ou usage inapproprié</li>
-      <li>Éléments matériels défaillants (non pris en charge)</li>
-    </ul>
-
-    <h2>9. Responsabilités</h2>
-    <p>La responsabilité de l'entreprise ne pourra être engagée :</p>
-    <ul>
-      <li>En cas de perte de données si aucune sauvegarde n'a été demandée</li>
-      <li>Pour les pannes matérielles irrécupérables</li>
-      <li>En cas de réparation antérieure par le client ou un tiers</li>
-      <li>Si le client utilise des logiciels non conformes ou piratés</li>
-    </ul>
-
-    <h2>10. Rétractation (clients particuliers uniquement)</h2>
-    <p>Le client dispose d'un délai de rétractation de 14 jours pour les prestations non encore exécutées.<br />
-    Conformément à l'article L221-28 du Code de la consommation, le droit de rétractation ne s'applique pas aux prestations déjà pleinement réalisées à la demande expresse du client avant la fin du délai.</p>
-
-    <h2>11. Données personnelles</h2>
-    <p>Les données collectées sont utilisées uniquement pour la gestion administrative et commerciale (devis, factures, contact client).<br />
-    Conformément au RGPD, le client peut à tout moment demander l'accès, la rectification ou la suppression de ses données.</p>
-
-    <h2>12. Réclamations - Litiges - Médiation</h2>
-    <p>En cas de réclamation, le client peut contacter l'entreprise par mail ou courrier.<br />
-    En cas de litige non résolu, il pourra recourir à un médiateur de la consommation (conformément à l'article L612-1 du Code de la consommation).<br />
-    À défaut, les litiges seront soumis aux tribunaux compétents du lieu du siège de l'entreprise.</p>
-
-    <h2>13. Acceptation</h2>
-    <p>Le client reconnaît avoir lu, compris et accepté sans réserve les présentes CGV.<br />
-    Elles sont disponibles sur demande ou annexées aux devis et factures.</p>
-  </main>
-  <!-- Footer -->
-  <footer>
+  <!-- Breadcrumb -->
+  <section class="breadcrumb-section">
     <div class="container">
-      <p>&copy; 2025 METRPC</p>
-      <p>
-        <a href="#">Mentions légales</a> | 
-        <a href="cgv.html">Conditions générales de vente</a> | 
-        <a href="#">Politique de confidentialité</a>
-      </p>
+      <nav class="breadcrumb">
+        <a href="index.html"><i class="fas fa-home"></i> Accueil</a>
+        <span class="separator"><i class="fas fa-chevron-right"></i></span>
+        <span class="current">Conditions Générales de Vente</span>
+      </nav>
+    </div>
+  </section>
+
+  <!-- CGV Hero Section -->
+  <section class="cgv-hero">
+    <div class="container">
+      <div class="cgv-hero-content">
+        <div class="cgv-icon">
+          <i class="fas fa-file-contract"></i>
+        </div>
+        <h1>Conditions Générales de Vente</h1>
+        <p class="cgv-subtitle">Termes et conditions applicables à tous les services METRPC</p>
+        <div class="cgv-meta">
+          <div class="meta-item">
+            <i class="fas fa-calendar-alt"></i>
+            <span>Dernière mise à jour : 10/07/2025</span>
+          </div>
+          <div class="meta-item">
+            <i class="fas fa-bookmark"></i>
+            <span>Version 2.1</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Company Info Card -->
+  <section class="company-info-section">
+    <div class="container">
+      <div class="company-card">
+        <div class="company-header">
+          <div class="company-logo">
+            <img src="images/Metrpc.png" alt="Logo METRPC">
+          </div>
+          <div class="company-details">
+            <h2>METRPC</h2>
+            <p class="company-status">Micro-entreprise</p>
+          </div>
+        </div>
+        <div class="company-info-grid">
+          <div class="info-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <div>
+              <strong>Adresse</strong>
+              <span>15 rue Louise Elisabeth Vigée Lebrun<br>51450 Bétheny</span>
+            </div>
+          </div>
+          <div class="info-item">
+            <i class="fas fa-envelope"></i>
+            <div>
+              <strong>Email</strong>
+              <a href="mailto:metrpc.pro@outlook.fr">metrpc.pro@outlook.fr</a>
+            </div>
+          </div>
+          <div class="info-item">
+            <i class="fas fa-id-card"></i>
+            <div>
+              <strong>SIRET</strong>
+              <span>94075849300016</span>
+            </div>
+          </div>
+          <div class="info-item">
+            <i class="fas fa-phone"></i>
+            <div>
+              <strong>Téléphone</strong>
+              <a href="tel:0678442348">06 78 44 23 48</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CGV Content -->
+  <main class="container cgv-container">
+    
+    <!-- Table of Contents -->
+    <div class="toc-card">
+      <h3><i class="fas fa-list"></i> Sommaire</h3>
+      <div class="toc-grid">
+        <a href="#objet" class="toc-item">1. Objet</a>
+        <a href="#statut" class="toc-item">2. Statut et TVA</a>
+        <a href="#prestations" class="toc-item">3. Prestations proposées</a>
+        <a href="#devis" class="toc-item">4. Devis et diagnostic</a>
+        <a href="#sauvegarde" class="toc-item">5. Sauvegarde des données</a>
+        <a href="#intervention" class="toc-item">6. Conditions d'intervention</a>
+        <a href="#tarifs" class="toc-item">7. Tarifs et règlement</a>
+        <a href="#garantie" class="toc-item">8. Garantie des prestations</a>
+        <a href="#responsabilites" class="toc-item">9. Responsabilités</a>
+        <a href="#retractation" class="toc-item">10. Rétractation</a>
+        <a href="#donnees" class="toc-item">11. Données personnelles</a>
+        <a href="#litiges" class="toc-item">12. Réclamations - Litiges</a>
+        <a href="#acceptation" class="toc-item">13. Acceptation</a>
+      </div>
+    </div>
+
+    <!-- Article 1 -->
+    <article id="objet" class="cgv-article">
+      <div class="article-header">
+        <div class="article-number">01</div>
+        <h2><i class="fas fa-bullseye"></i> Objet</h2>
+      </div>
+      <div class="article-content">
+        <p>Les présentes Conditions Générales de Vente (CGV) s'appliquent à toutes les prestations réalisées par <strong>MetRPC</strong>, entreprise individuelle déclarée en micro-entreprise, spécialisée dans la réparation, maintenance et assistance informatique, <em>sans vente de matériel</em>.</p>
+      </div>
+    </article>
+
+    <!-- Article 2 -->
+    <article id="statut" class="cgv-article">
+      <div class="article-header">
+        <div class="article-number">02</div>
+        <h2><i class="fas fa-receipt"></i> Statut et TVA</h2>
+      </div>
+      <div class="article-content">
+        <div class="highlight-box">
+          <div class="highlight-content">
+            <i class="fas fa-info-circle"></i>
+            <div>
+              <p><strong>Régime fiscal :</strong> Micro-entreprise</p>
+              <p><strong>TVA :</strong> Non applicable - article 293 B du Code général des impôts</p>
+              <p><strong>Prix :</strong> Tous les prix indiqués sont nets de taxes</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Article 3 -->
+    <article id="prestations" class="cgv-article">
+      <div class="article-header">
+        <div class="article-number">03</div>
+        <h2><i class="fas fa-tools"></i> Prestations proposées</h2>
+      </div>
+      <div class="article-content">
+        <p>L'entreprise propose uniquement des <strong>services</strong> incluant :</p>
+        <div class="services-grid">
+          <div class="service-item">
+            <i class="fas fa-search"></i>
+            <span>Diagnostic et dépannage informatique</span>
+          </div>
+          <div class="service-item">
+            <i class="fas fa-download"></i>
+            <span>Réinstallation de systèmes d'exploitation</span>
+          </div>
+          <div class="service-item">
+            <i class="fas fa-shield-virus"></i>
+            <span>Suppression de virus et malwares</span>
+          </div>
+          <div class="service-item">
+            <i class="fas fa-hdd"></i>
+            <span>Sauvegarde et récupération de données</span>
+          </div>
+          <div class="service-item">
+            <i class="fas fa-tachometer-alt"></i>
+            <span>Optimisation système</span>
+          </div>
+          <div class="service-item">
+            <i class="fas fa-headset"></i>
+            <span>Assistance utilisateur</span>
+          </div>
+          <div class="service-item">
+            <i class="fas fa-wrench"></i>
+            <span>Maintenance logicielle</span>
+          </div>
+        </div>
+        <div class="warning-box">
+          <i class="fas fa-exclamation-triangle"></i>
+          <p><strong>Important :</strong> Aucune vente de pièces ou de matériel n'est effectuée.</p>
+        </div>
+      </div>
+    </article>
+
+    <!-- Article 4 -->
+    <article id="devis" class="cgv-article">
+      <div class="article-header">
+        <div class="article-number">04</div>
+        <h2><i class="fas fa-calculator"></i> Devis et diagnostic</h2>
+      </div>
+      <div class="article-content">
+        <p>Tout appareil déposé fait l'objet d'un diagnostic préalable pour évaluer le problème et établir un devis.</p>
+        <div class="pricing-card">
+          <div class="price-header">
+            <i class="fas fa-euro-sign"></i>
+            <div>
+              <h4>Diagnostic</h4>
+              <span class="price">15 € TTC</span>
+            </div>
+          </div>
+          <div class="price-conditions">
+            <div class="condition-item success">
+              <i class="fas fa-check"></i>
+              <span>Devis accepté : 15 € déduits du prix total</span>
+            </div>
+            <div class="condition-item warning">
+              <i class="fas fa-times"></i>
+              <span>Devis refusé ou sans réponse sous 30 jours : 15 € restent dus</span>
+            </div>
+            <div class="condition-item info">
+              <i class="fas fa-signature"></i>
+              <span>Validation possible : écrite, orale ou électronique</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Article 5 -->
+    <article id="sauvegarde" class="cgv-article">
+      <div class="article-header">
+        <div class="article-number">05</div>
+        <h2><i class="fas fa-database"></i> Sauvegarde des données</h2>
+      </div>
+      <div class="article-content">
+        <div class="responsibility-card">
+          <h4><i class="fas fa-user-shield"></i> Responsabilité du client</h4>
+          <p>Avant toute intervention, le client est <strong>fortement invité</strong> à sauvegarder ses données personnelles.</p>
+          
+          <div class="backup-options">
+            <div class="backup-option">
+              <i class="fas fa-plus-circle"></i>
+              <div>
+                <h5>Prestation optionnelle</h5>
+                <p>Sauvegarde proposée par l'entreprise, tarifée selon le cas</p>
+              </div>
+            </div>
+            <div class="backup-option decline">
+              <i class="fas fa-exclamation-triangle"></i>
+              <div>
+                <h5>En cas de refus</h5>
+                <p>Le client dégage expressément l'entreprise de toute responsabilité en cas de perte de fichiers, données, logiciels, ou paramètres</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Article 6 -->
+    <article id="intervention" class="cgv-article">
+      <div class="article-header">
+        <div class="article-number">06</div>
+        <h2><i class="fas fa-map-marked-alt"></i> Conditions d'intervention</h2>
+      </div>
+      <div class="article-content">
+        <p>Les prestations sont réalisées selon les modalités suivantes :</p>
+        <div class="intervention-types">
+          <div class="intervention-card">
+            <i class="fas fa-home"></i>
+            <h4>Chez le client</h4>
+            <p>Intervention à domicile sur site</p>
+          </div>
+          <div class="intervention-card">
+            <i class="fas fa-wrench"></i>
+            <h4>En atelier</h4>
+            <p>Récupération du matériel<br><small>(sans accueil des clients au domicile)</small></p>
+          </div>
+          <div class="intervention-card">
+            <i class="fas fa-wifi"></i>
+            <h4>À distance</h4>
+            <p>Sous conditions techniques</p>
+          </div>
+        </div>
+        <div class="delay-notice">
+          <i class="fas fa-clock"></i>
+          <p><strong>Délais :</strong> Les délais d'intervention sont indicatifs, non contractuels. Aucun retard ne peut justifier une remise ou annulation sauf engagement écrit.</p>
+        </div>
+      </div>
+    </article>
+
+    <!-- Article 7 -->
+    <article id="tarifs" class="cgv-article">
+      <div class="article-header">
+        <div class="article-number">07</div>
+        <h2><i class="fas fa-credit-card"></i> Tarifs et règlement</h2>
+      </div>
+      <div class="article-content">
+        <p>Les prix sont indiqués en euros nets (TVA non applicable).</p>
+        <p>Le paiement est <strong>exigible immédiatement</strong> après la prestation :</p>
+        
+        <div class="payment-methods">
+          <div class="payment-method">
+            <i class="fas fa-credit-card"></i>
+            <span>Carte bancaire via terminal SumUp</span>
+          </div>
+          <div class="payment-method">
+            <i class="fas fa-link"></i>
+            <span>Lien de paiement SumUp</span>
+          </div>
+          <div class="payment-method">
+            <i class="fas fa-money-bills"></i>
+            <span>Espèces</span>
+          </div>
+          <div class="payment-method">
+            <i class="fas fa-money-check"></i>
+            <span>Chèques</span>
+          </div>
+        </div>
+
+        <div class="retention-notice">
+          <i class="fas fa-lock"></i>
+          <p><strong>Droit de rétention :</strong> En cas de non-paiement, l'entreprise se réserve le droit de rétention de l'appareil (article 2286 du Code civil) jusqu'au règlement complet.</p>
+        </div>
+      </div>
+    </article>
+
+    <!-- Article 8 -->
+    <article id="garantie" class="cgv-article">
+      <div class="article-header">
+        <div class="article-number">08</div>
+        <h2><i class="fas fa-shield-check"></i> Garantie des prestations</h2>
+      </div>
+      <div class="article-content">
+        <div class="warranty-card">
+          <div class="warranty-header">
+            <i class="fas fa-calendar-check"></i>
+            <div>
+              <h4>Garantie</h4>
+              <span class="warranty-period">15 jours</span>
+            </div>
+          </div>
+          <p>Uniquement pour le <strong>même dysfonctionnement</strong></p>
+        </div>
+
+        <h4><i class="fas fa-times-circle"></i> Exclusions :</h4>
+        <div class="exclusions-list">
+          <div class="exclusion-item">
+            <i class="fas fa-ban"></i>
+            <span>Nouveaux problèmes non liés</span>
+          </div>
+          <div class="exclusion-item">
+            <i class="fas fa-ban"></i>
+            <span>Infections ultérieures (virus, logiciels)</span>
+          </div>
+          <div class="exclusion-item">
+            <i class="fas fa-ban"></i>
+            <span>Mauvaise manipulation ou usage inapproprié</span>
+          </div>
+          <div class="exclusion-item">
+            <i class="fas fa-ban"></i>
+            <span>Éléments matériels défaillants</span>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Article 9 -->
+    <article id="responsabilites" class="cgv-article">
+      <div class="article-header">
+        <div class="article-number">09</div>
+        <h2><i class="fas fa-balance-scale"></i> Responsabilités</h2>
+      </div>
+      <div class="article-content">
+        <p>La responsabilité de l'entreprise <strong>ne pourra être engagée</strong> :</p>
+        <div class="liability-items">
+          <div class="liability-item">
+            <i class="fas fa-database"></i>
+            <div>
+              <h5>Perte de données</h5>
+              <p>Si aucune sauvegarde n'a été demandée</p>
+            </div>
+          </div>
+          <div class="liability-item">
+            <i class="fas fa-microchip"></i>
+            <div>
+              <h5>Pannes matérielles</h5>
+              <p>Irrécupérables</p>
+            </div>
+          </div>
+          <div class="liability-item">
+            <i class="fas fa-tools"></i>
+            <div>
+              <h5>Réparations antérieures</h5>
+              <p>Par le client ou un tiers</p>
+            </div>
+          </div>
+          <div class="liability-item">
+            <i class="fas fa-bug"></i>
+            <div>
+              <h5>Logiciels non conformes</h5>
+              <p>Ou piratés utilisés par le client</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Article 10 -->
+    <article id="retractation" class="cgv-article">
+      <div class="article-header">
+        <div class="article-number">10</div>
+        <h2><i class="fas fa-undo-alt"></i> Rétractation</h2>
+      </div>
+      <div class="article-content">
+        <div class="retraction-card">
+          <div class="retraction-header">
+            <i class="fas fa-user"></i>
+            <span>Clients particuliers uniquement</span>
+          </div>
+          <p>Le client dispose d'un délai de rétractation de <strong>14 jours</strong> pour les prestations non encore exécutées.</p>
+          <div class="legal-reference">
+            <i class="fas fa-gavel"></i>
+            <p><strong>Référence légale :</strong> Article L221-28 du Code de la consommation - Le droit de rétractation ne s'applique pas aux prestations déjà pleinement réalisées à la demande expresse du client avant la fin du délai.</p>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Article 11 -->
+    <article id="donnees" class="cgv-article">
+      <div class="article-header">
+        <div class="article-number">11</div>
+        <h2><i class="fas fa-user-secret"></i> Données personnelles</h2>
+      </div>
+      <div class="article-content">
+        <div class="privacy-card">
+          <h4><i class="fas fa-lock"></i> Protection des données</h4>
+          <p>Les données collectées sont utilisées uniquement pour la gestion administrative et commerciale (devis, factures, contact client).</p>
+          
+          <div class="gdpr-rights">
+            <h5>Vos droits RGPD</h5>
+            <div class="rights-grid">
+              <div class="right-item">
+                <i class="fas fa-eye"></i>
+                <span>Droit d'accès</span>
+              </div>
+              <div class="right-item">
+                <i class="fas fa-edit"></i>
+                <span>Droit de rectification</span>
+              </div>
+              <div class="right-item">
+                <i class="fas fa-trash"></i>
+                <span>Droit à l'effacement</span>
+              </div>
+            </div>
+            <p>Le client peut à tout moment exercer ces droits.</p>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Article 12 -->
+    <article id="litiges" class="cgv-article">
+      <div class="article-header">
+        <div class="article-number">12</div>
+        <h2><i class="fas fa-gavel"></i> Réclamations - Litiges - Médiation</h2>
+      </div>
+      <div class="article-content">
+        <div class="dispute-process">
+          <div class="process-step">
+            <div class="step-number">1</div>
+            <div class="step-content">
+              <h5>Réclamation</h5>
+              <p>Contacter l'entreprise par mail ou courrier</p>
+            </div>
+          </div>
+          <div class="process-arrow">
+            <i class="fas fa-arrow-down"></i>
+          </div>
+          <div class="process-step">
+            <div class="step-number">2</div>
+            <div class="step-content">
+              <h5>Médiation</h5>
+              <p>Recours possible à un médiateur de la consommation<br><small>(Article L612-1 du Code de la consommation)</small></p>
+            </div>
+          </div>
+          <div class="process-arrow">
+            <i class="fas fa-arrow-down"></i>
+          </div>
+          <div class="process-step">
+            <div class="step-number">3</div>
+            <div class="step-content">
+              <h5>Tribunaux</h5>
+              <p>Litiges soumis aux tribunaux compétents du lieu du siège de l'entreprise</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Article 13 -->
+    <article id="acceptation" class="cgv-article final-article">
+      <div class="article-header">
+        <div class="article-number">13</div>
+        <h2><i class="fas fa-handshake"></i> Acceptation</h2>
+      </div>
+      <div class="article-content">
+        <div class="acceptance-card">
+          <i class="fas fa-check-circle"></i>
+          <div>
+            <h4>Engagement mutuel</h4>
+            <p>Le client reconnaît avoir lu, compris et accepté sans réserve les présentes CGV.</p>
+            <p>Elles sont disponibles sur demande ou annexées aux devis et factures.</p>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Contact Card -->
+    <div class="contact-card">
+      <h3><i class="fas fa-question-circle"></i> Des questions ?</h3>
+      <p>N'hésitez pas à nous contacter pour toute clarification</p>
+      <div class="contact-actions">
+        <a href="tel:0678442348" class="btn btn-primary">
+          <i class="fas fa-phone"></i>
+          Appeler
+        </a>
+        <a href="mailto:metrpc.pro@outlook.fr" class="btn btn-secondary">
+          <i class="fas fa-envelope"></i>
+          Email
+        </a>
+        <a href="index.html#contact" class="btn btn-secondary">
+          <i class="fas fa-map-marker-alt"></i>
+          Nous localiser
+        </a>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer-modern">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <div class="logo-block">
+            <img src="images/Metrpc.png" alt="Logo METRPC" class="logo">
+            <div class="brand-text">
+              <span class="brand">METRPC</span>
+              <span class="tagline">Solutions IT</span>
+            </div>
+          </div>
+          <p>Votre partenaire de confiance pour tous vos besoins informatiques à Reims et ses environs.</p>
+        </div>
+        <div class="footer-links">
+          <div class="footer-section">
+            <h4>Légal</h4>
+            <ul>
+              <li><a href="#">Mentions légales</a></li>
+              <li><a href="cgv.html">CGV</a></li>
+              <li><a href="#">Politique de confidentialité</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h4>Contact</h4>
+            <ul>
+              <li><i class="fas fa-phone"></i> 06 78 44 23 48</li>
+              <li><i class="fas fa-envelope"></i> metrpc.pro@outlook.fr</li>
+              <li><i class="fas fa-map-marker-alt"></i> Reims et environs</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-copyright">
+          <p>&copy; 2025 METRPC - Tous droits réservés</p>
+        </div>
+        <div class="footer-legal">
+          <a href="#">Mentions légales</a>
+          <a href="cgv.html">CGV</a>
+          <a href="#">Confidentialité</a>
+        </div>
+      </div>
     </div>
   </footer>
+
+  <!-- Scroll to top button -->
+  <button id="scrollToTop" class="scroll-to-top" aria-label="Retour en haut">
+    <i class="fas fa-chevron-up"></i>
+  </button>
+
+  <!-- Scripts -->
   <script src="javascript/script.js"></script>
 </body>
 </html>
