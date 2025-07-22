@@ -933,14 +933,21 @@
 }
 
 .contact-actions {
-  display: flex;
+  display: flex !important;
   justify-content: center;
   gap: 1rem;
   flex-wrap: wrap;
+  align-items: center;
+  margin-top: 1rem;
 }
 
 .contact-actions .btn {
   min-width: 140px;
+  display: inline-flex !important;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 12px 20px;
+  text-decoration: none;
 }
 
 /* Footer Modern (same as CGV) */
@@ -1155,11 +1162,13 @@
   .contact-actions {
     flex-direction: column;
     align-items: center;
+    gap: 1rem;
   }
   
   .contact-actions .btn {
     width: 100%;
     max-width: 250px;
+    justify-content: center;
   }
 }
 
