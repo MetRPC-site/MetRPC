@@ -409,16 +409,6 @@ document.querySelectorAll('.btn').forEach(button => {
   });
 });
 
-// Parallax effect for hero background (if supported)
-const heroBackground = document.querySelector('.hero-background');
-if (heroBackground && window.innerWidth > 768) {
-  window.addEventListener('scroll', () => {
-    const scrolled = window.pageYOffset;
-    const rate = scrolled * -0.5;
-    heroBackground.style.transform = `translate3d(0, ${rate}px, 0)`;
-  });
-}
-
 // Form field error styling
 const formErrorStyle = document.createElement('style');
 formErrorStyle.textContent = `
