@@ -687,7 +687,7 @@
 .form-group select,
 .form-group textarea {
   width: 100%;
-  padding: 1rem 1rem 1rem 3rem;
+  padding: 1rem 1rem 1rem 3.5rem;
   border: 2px solid var(--border-color);
   border-radius: var(--border-radius);
   font-size: 1rem;
@@ -706,16 +706,17 @@
 
 .input-icon {
   position: absolute;
-  top: 50%;
-  left: 1rem;
+  top: calc(50% + 10px);
+  left: 1.2rem;
   transform: translateY(-50%);
-  color: var(--text-muted);
+  color: var(--primary-color);
   pointer-events: none;
   z-index: 1;
+  font-size: 1rem;
 }
 
 .form-group textarea + .input-icon {
-  top: 2.5rem;
+  top: 3rem;
   transform: none;
 }
 
