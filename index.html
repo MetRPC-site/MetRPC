@@ -4,17 +4,31 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>METRPC - Votre Expert en Réparation d'Ordinateurs</title>
-  <link rel="stylesheet" href="css/style.css" />
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- AOS Animation Library -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+  
+  <!-- Custom Styles -->
   <link rel="stylesheet" href="css/content.css" />
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
 
   <!-- Header -->
-  <header>
+  <header class="header-modern">
     <div class="container nav-container">
-      <div class="logo-block">
+      <div class="logo-block" data-aos="fade-right">
         <img src="images/Metrpc.png" alt="Logo METRPC" class="logo">
         <span class="brand">METRPC</span>
+        <span class="tagline">Solutions IT</span>
       </div>
       <div class="mobile-menu">
         <button class="menu-btn" aria-label="Menu">
@@ -23,123 +37,523 @@
           <span></span>
         </button>
       </div>
-      <nav class="nav-menu">
+      <nav class="nav-menu" data-aos="fade-left">
         <ul>
-          <li><a href="index.html">Accueil</a></li>
-          <li><a href="index.html#QuiNousSommes">Qui sommes-nous</a></li>
-          <li><a href="index.html#process">Fonctionnement</a></li>
-          <li><a href="index.html#services">Services</a></li>
-          <li><a href="index.html#contact">Contact</a></li>
+          <li><a href="index.html"><i class="fas fa-home"></i> Accueil</a></li>
+          <li><a href="index.html#QuiNousSommes"><i class="fas fa-users"></i> Qui sommes-nous</a></li>
+          <li><a href="index.html#process"><i class="fas fa-cogs"></i> Fonctionnement</a></li>
+          <li><a href="index.html#services"><i class="fas fa-tools"></i> Services</a></li>
+          <li><a href="index.html#contact"><i class="fas fa-envelope"></i> Contact</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
-  <!-- Hero -->
-  <section class="hero fade-in">
+  <!-- Hero Section -->
+  <section class="hero-modern" data-aos="fade-in" data-aos-duration="1000">
+    <div class="hero-background"></div>
+    <div class="hero-overlay"></div>
+    <div class="container hero-content">
+      <div class="hero-text">
+        <h1 class="hero-title" data-aos="fade-up" data-aos-delay="300">
+          Réparation & Assistance
+          <span class="gradient-text">Informatique</span>
+          <span class="location-text">à Reims</span>
+        </h1>
+        <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="500">
+          Votre partenaire de confiance pour tous vos besoins informatiques. 
+          Intervention rapide, service professionnel et tarifs transparents.
+        </p>
+        <div class="hero-features" data-aos="fade-up" data-aos-delay="700">
+          <div class="feature-item">
+            <i class="fas fa-clock"></i>
+            <span>Intervention rapide</span>
+          </div>
+          <div class="feature-item">
+            <i class="fas fa-shield-alt"></i>
+            <span>Service garanti</span>
+          </div>
+          <div class="feature-item">
+            <i class="fas fa-euro-sign"></i>
+            <span>Tarifs transparents</span>
+          </div>
+        </div>
+        <div class="hero-cta" data-aos="fade-up" data-aos-delay="900">
+          <a href="#devis" class="btn btn-primary">
+            <i class="fas fa-calculator"></i>
+            Demander un devis gratuit
+          </a>
+          <a href="#contact" class="btn btn-secondary">
+            <i class="fas fa-phone"></i>
+            06 78 44 23 48
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Section -->
+  <section class="stats-section" data-aos="fade-up">
     <div class="container">
-      <h1>Réparation & Assistance Informatique à Reims</h1>
-      <a href="#devis" class="btn">Demander un devis</a>
+      <div class="stats-grid">
+        <div class="stat-item" data-aos="zoom-in" data-aos-delay="100">
+          <div class="stat-icon">
+            <i class="fas fa-users"></i>
+          </div>
+          <div class="stat-number">500+</div>
+          <div class="stat-label">Clients satisfaits</div>
+        </div>
+        <div class="stat-item" data-aos="zoom-in" data-aos-delay="200">
+          <div class="stat-icon">
+            <i class="fas fa-laptop"></i>
+          </div>
+          <div class="stat-number">1000+</div>
+          <div class="stat-label">Réparations effectuées</div>
+        </div>
+        <div class="stat-item" data-aos="zoom-in" data-aos-delay="300">
+          <div class="stat-icon">
+            <i class="fas fa-clock"></i>
+          </div>
+          <div class="stat-number">24h</div>
+          <div class="stat-label">Délai moyen</div>
+        </div>
+        <div class="stat-item" data-aos="zoom-in" data-aos-delay="400">
+          <div class="stat-icon">
+            <i class="fas fa-star"></i>
+          </div>
+          <div class="stat-number">4.9/5</div>
+          <div class="stat-label">Note moyenne</div>
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- À propos -->
-  <section id="QuiNousSommes" class="QuiNousSommes fade-in">
+  <section id="QuiNousSommes" class="about-section" data-aos="fade-up">
     <div class="container">
-      <h2>Qui sommes-nous ?</h2>
-      <p>METRPC est une entreprise locale basée à Bétheny, spécialisée dans la réparation et l'assistance informatique à domicile ou en atelier. Fondée par un passionné d'informatique, notre mission est de vous offrir un service rapide, fiable et accessible.</p>
-      <p>Nous intervenons sur Reims et ses environs pour tout type de dépannage : ordinateur portable, PC de bureau, optimisation système, suppression de virus, etc.</p>
+      <div class="section-header">
+        <h2 data-aos="fade-up">Qui sommes-nous ?</h2>
+        <div class="section-divider" data-aos="fade-up" data-aos-delay="200"></div>
+      </div>
+      <div class="about-content">
+        <div class="about-text" data-aos="fade-right" data-aos-delay="300">
+          <div class="about-card">
+            <div class="about-icon">
+              <i class="fas fa-building"></i>
+            </div>
+            <h3>Entreprise locale de confiance</h3>
+            <p>METRPC est une entreprise locale basée à Bétheny, spécialisée dans la réparation et l'assistance informatique à domicile ou en atelier. Fondée par un passionné d'informatique, notre mission est de vous offrir un service rapide, fiable et accessible.</p>
+          </div>
+        </div>
+        <div class="about-text" data-aos="fade-left" data-aos-delay="500">
+          <div class="about-card">
+            <div class="about-icon">
+              <i class="fas fa-map-marker-alt"></i>
+            </div>
+            <h3>Service à domicile sur Reims</h3>
+            <p>Nous intervenons sur Reims et ses environs pour tout type de dépannage : ordinateur portable, PC de bureau, optimisation système, suppression de virus, récupération de données, et bien plus encore.</p>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- Fonctionnement -->
-  <section id="process" class="process fade-in">
+  <section id="process" class="process-section" data-aos="fade-up">
     <div class="container">
-      <h2>Comment ça fonctionne</h2>
-      <div class="steps">
-        <div class="step"><strong>1.</strong> Décrivez votre problème</div>
-        <div class="step"><strong>2.</strong> Diagnostic et devis</div>
-        <div class="step"><strong>3.</strong> Intervention rapide à domicile ou en atelier</div>
-        <div class="step"><strong>4.</strong> Conseils & satisfaction</div>
+      <div class="section-header">
+        <h2 data-aos="fade-up">Comment ça fonctionne</h2>
+        <div class="section-divider" data-aos="fade-up" data-aos-delay="200"></div>
+        <p class="section-subtitle" data-aos="fade-up" data-aos-delay="300">
+          Un processus simple et transparent pour résoudre vos problèmes informatiques
+        </p>
+      </div>
+      <div class="process-timeline">
+        <div class="timeline-item" data-aos="fade-right" data-aos-delay="100">
+          <div class="timeline-marker">
+            <div class="timeline-number">1</div>
+          </div>
+          <div class="timeline-content">
+            <div class="timeline-icon">
+              <i class="fas fa-comments"></i>
+            </div>
+            <h3>Décrivez votre problème</h3>
+            <p>Contactez-nous par téléphone, email ou via notre formulaire pour décrire votre problème informatique.</p>
+          </div>
+        </div>
+        <div class="timeline-item" data-aos="fade-left" data-aos-delay="200">
+          <div class="timeline-marker">
+            <div class="timeline-number">2</div>
+          </div>
+          <div class="timeline-content">
+            <div class="timeline-icon">
+              <i class="fas fa-search"></i>
+            </div>
+            <h3>Diagnostic et devis</h3>
+            <p>Nous effectuons un diagnostic précis et vous proposons un devis transparent et détaillé sans engagement.</p>
+          </div>
+        </div>
+        <div class="timeline-item" data-aos="fade-right" data-aos-delay="300">
+          <div class="timeline-marker">
+            <div class="timeline-number">3</div>
+          </div>
+          <div class="timeline-content">
+            <div class="timeline-icon">
+              <i class="fas fa-tools"></i>
+            </div>
+            <h3>Intervention rapide</h3>
+            <p>Réparation professionnelle à domicile ou en atelier selon vos préférences et la nature du problème.</p>
+          </div>
+        </div>
+        <div class="timeline-item" data-aos="fade-left" data-aos-delay="400">
+          <div class="timeline-marker">
+            <div class="timeline-number">4</div>
+          </div>
+          <div class="timeline-content">
+            <div class="timeline-icon">
+              <i class="fas fa-thumbs-up"></i>
+            </div>
+            <h3>Conseils & satisfaction</h3>
+            <p>Conseils personnalisés pour éviter les problèmes futurs et suivi pour garantir votre satisfaction.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- Services -->
-  <section id="services" class="services fade-in">
+  <section id="services" class="services-section" data-aos="fade-up">
     <div class="container">
-      <h2>Nos services</h2>
-      <div class="service-list">
-        <div class="card fade-in">Suppression de virus et optimisation</div>
-        <div class="card fade-in">Réparation matérielle (écran, disque, etc.)</div>
-        <div class="card fade-in">Installation de Windows / logiciels</div>
+      <div class="section-header">
+        <h2 data-aos="fade-up">Nos services</h2>
+        <div class="section-divider" data-aos="fade-up" data-aos-delay="200"></div>
+        <p class="section-subtitle" data-aos="fade-up" data-aos-delay="300">
+          Une gamme complète de services informatiques pour particuliers et professionnels
+        </p>
+      </div>
+      <div class="services-grid">
+        <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="service-icon">
+            <i class="fas fa-bug"></i>
+          </div>
+          <h3>Suppression de virus</h3>
+          <p>Nettoyage complet de votre système, suppression des malwares et optimisation des performances.</p>
+          <ul class="service-features">
+            <li><i class="fas fa-check"></i> Scan approfondi</li>
+            <li><i class="fas fa-check"></i> Suppression garantie</li>
+            <li><i class="fas fa-check"></i> Protection préventive</li>
+          </ul>
+        </div>
+        <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="service-icon">
+            <i class="fas fa-screwdriver"></i>
+          </div>
+          <h3>Réparation matérielle</h3>
+          <p>Remplacement et réparation de composants : écran, disque dur, mémoire RAM, ventilateurs, etc.</p>
+          <ul class="service-features">
+            <li><i class="fas fa-check"></i> Diagnostic précis</li>
+            <li><i class="fas fa-check"></i> Pièces de qualité</li>
+            <li><i class="fas fa-check"></i> Garantie 6 mois</li>
+          </ul>
+        </div>
+        <div class="service-card" data-aos="fade-up" data-aos-delay="300">
+          <div class="service-icon">
+            <i class="fas fa-download"></i>
+          </div>
+          <h3>Installation & Configuration</h3>
+          <p>Installation de Windows, logiciels, périphériques et configuration personnalisée de votre système.</p>
+          <ul class="service-features">
+            <li><i class="fas fa-check"></i> Système optimisé</li>
+            <li><i class="fas fa-check"></i> Logiciels essentiels</li>
+            <li><i class="fas fa-check"></i> Formation incluse</li>
+          </ul>
+        </div>
+        <div class="service-card" data-aos="fade-up" data-aos-delay="400">
+          <div class="service-icon">
+            <i class="fas fa-hdd"></i>
+          </div>
+          <h3>Récupération de données</h3>
+          <p>Récupération de vos fichiers importants depuis des disques endommagés ou des systèmes défaillants.</p>
+          <ul class="service-features">
+            <li><i class="fas fa-check"></i> Évaluation gratuite</li>
+            <li><i class="fas fa-check"></i> Taux de réussite élevé</li>
+            <li><i class="fas fa-check"></i> Confidentialité garantie</li>
+          </ul>
+        </div>
+        <div class="service-card" data-aos="fade-up" data-aos-delay="500">
+          <div class="service-icon">
+            <i class="fas fa-tachometer-alt"></i>
+          </div>
+          <h3>Optimisation système</h3>
+          <p>Nettoyage, défragmentation, mise à jour et optimisation pour améliorer les performances.</p>
+          <ul class="service-features">
+            <li><i class="fas fa-check"></i> Nettoyage approfondi</li>
+            <li><i class="fas fa-check"></i> Mise à jour complète</li>
+            <li><i class="fas fa-check"></i> Amélioration notable</li>
+          </ul>
+        </div>
+        <div class="service-card" data-aos="fade-up" data-aos-delay="600">
+          <div class="service-icon">
+            <i class="fas fa-graduation-cap"></i>
+          </div>
+          <h3>Formation & Conseil</h3>
+          <p>Accompagnement personnalisé pour maîtriser votre ordinateur et éviter les problèmes futurs.</p>
+          <ul class="service-features">
+            <li><i class="fas fa-check"></i> Formation adaptée</li>
+            <li><i class="fas fa-check"></i> Conseils pratiques</li>
+            <li><i class="fas fa-check"></i> Support continu</li>
+          </ul>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- Témoignages -->
-  <section class="testimonials fade-in">
+  <section class="testimonials-section" data-aos="fade-up">
     <div class="container">
-      <h2>Ce que disent nos clients</h2>
-      <blockquote>"Technicien très réactif, réparation rapide et efficace. Je recommande vivement !"</blockquote>
-      <cite>– Claire D.</cite>
+      <div class="section-header">
+        <h2 data-aos="fade-up">Ce que disent nos clients</h2>
+        <div class="section-divider" data-aos="fade-up" data-aos-delay="200"></div>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimonial-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="testimonial-content">
+            <div class="stars">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <blockquote>"Technicien très réactif, réparation rapide et efficace. Mon ordinateur fonctionne comme neuf ! Je recommande vivement ce service professionnel."</blockquote>
+          </div>
+          <div class="testimonial-author">
+            <div class="author-avatar">
+              <i class="fas fa-user"></i>
+            </div>
+            <div class="author-info">
+              <cite>Claire D.</cite>
+              <small>Reims</small>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="testimonial-content">
+            <div class="stars">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <blockquote>"Excellent service, intervention à domicile très appréciée. Tarifs honnêtes et travail soigné. Merci pour la récupération de mes photos de famille !"</blockquote>
+          </div>
+          <div class="testimonial-author">
+            <div class="author-avatar">
+              <i class="fas fa-user"></i>
+            </div>
+            <div class="author-info">
+              <cite>Michel R.</cite>
+              <small>Bétheny</small>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card" data-aos="fade-up" data-aos-delay="300">
+          <div class="testimonial-content">
+            <div class="stars">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <blockquote>"Problème résolu en moins de 2 heures ! Professionnel compétent et pédagogue. J'ai appris beaucoup de choses pour éviter les problèmes futurs."</blockquote>
+          </div>
+          <div class="testimonial-author">
+            <div class="author-avatar">
+              <i class="fas fa-user"></i>
+            </div>
+            <div class="author-info">
+              <cite>Sophie L.</cite>
+              <small>Cormontreuil</small>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- Devis-->
-  <section id="devis" class="devis fade-in">
+  <!-- Formulaire de Devis -->
+  <section id="devis" class="quote-section" data-aos="fade-up">
     <div class="container">
-      <form class="devis-form" action="devis.php" method="post">
-        <h2>Demande de devis de réparation</h2>
-      
-        <label for="nom">Nom :</label>
-        <input type="text" id="nom" name="nom" required>
-      
-        <label for="email">Email :</label>
-        <input type="email" id="email" name="email" required>
-      
-        <label for="telephone">Téléphone :</label>
-        <input type="tel" id="telephone" name="telephone" required>
-      
-        <label for="typeAppareil">Type d'appareil :</label>
-        <select id="typeAppareil" name="typeAppareil" required>
-          <option value="">-- Choisissez --</option>
-          <option value="ordinateur">Ordinateur</option>
-          <option value="portable">PC Portable</option>
-          <option value="tablette">Tablette</option>
-          <option value="autre">Autre</option>
-        </select>
-      
-        <label for="probleme">Description du problème :</label>
-        <textarea id="probleme" name="probleme" rows="4" placeholder="Décrivez le souci rencontré..." required></textarea>
-      
-        <button type="submit">Envoyer la demande</button>
-      </form>
-      
+      <div class="quote-wrapper">
+        <div class="quote-info" data-aos="fade-right" data-aos-delay="200">
+          <h2>Demandez votre devis gratuit</h2>
+          <p>Obtenez une estimation personnalisée pour votre problème informatique. Réponse rapide garantie !</p>
+          <div class="quote-features">
+            <div class="feature-item">
+              <i class="fas fa-gift"></i>
+              <div class="feature-text">
+                <h4>Devis gratuit</h4>
+                <p>Estimation sans engagement</p>
+              </div>
+            </div>
+            <div class="feature-item">
+              <i class="fas fa-clock"></i>
+              <div class="feature-text">
+                <h4>Réponse rapide</h4>
+                <p>Sous 2h en moyenne</p>
+              </div>
+            </div>
+            <div class="feature-item">
+              <i class="fas fa-shield-alt"></i>
+              <div class="feature-text">
+                <h4>Service garanti</h4>
+                <p>Satisfaction garantie</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <form class="quote-form" action="devis.php" method="post" data-aos="fade-left" data-aos-delay="400">
+          <div class="form-group">
+            <label for="nom">Nom complet</label>
+            <input type="text" id="nom" name="nom" required>
+            <i class="fas fa-user input-icon"></i>
+          </div>
+        
+          <div class="form-group">
+            <label for="email">Adresse email</label>
+            <input type="email" id="email" name="email" required>
+            <i class="fas fa-envelope input-icon"></i>
+          </div>
+        
+          <div class="form-group">
+            <label for="telephone">Numéro de téléphone</label>
+            <input type="tel" id="telephone" name="telephone" required>
+            <i class="fas fa-phone input-icon"></i>
+          </div>
+        
+          <div class="form-group">
+            <label for="typeAppareil">Type d'appareil</label>
+            <select id="typeAppareil" name="typeAppareil" required>
+              <option value="">-- Sélectionnez votre appareil --</option>
+              <option value="ordinateur">Ordinateur de bureau</option>
+              <option value="portable">PC Portable</option>
+              <option value="tablette">Tablette</option>
+              <option value="mac">Mac / iMac</option>
+              <option value="autre">Autre</option>
+            </select>
+            <i class="fas fa-laptop input-icon"></i>
+          </div>
+        
+          <div class="form-group">
+            <label for="probleme">Description du problème</label>
+            <textarea id="probleme" name="probleme" rows="4" placeholder="Décrivez le plus précisément possible le problème rencontré..." required></textarea>
+            <i class="fas fa-comment input-icon"></i>
+          </div>
+        
+          <button type="submit" class="btn btn-primary btn-full">
+            <i class="fas fa-paper-plane"></i>
+            Envoyer ma demande de devis
+          </button>
+        </form>
+      </div>
     </div>
   </section>
 
   <!-- Contact -->
-  <section id="contact" class="contact fade-in">
+  <section id="contact" class="contact-section" data-aos="fade-up">
     <div class="container">
-      <h2>Contactez-nous</h2>
-      <p>📞 06 78 44 23 48</p>
-      <p>📧 <a href="mailto:metrpc.pro@outlook.fr">metrpc.pro@outlook.fr</a></p>
+      <div class="section-header">
+        <h2 data-aos="fade-up">Contactez-nous</h2>
+        <div class="section-divider" data-aos="fade-up" data-aos-delay="200"></div>
+        <p class="section-subtitle" data-aos="fade-up" data-aos-delay="300">
+          Plusieurs moyens de nous joindre pour un service rapide et personnalisé
+        </p>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="contact-icon">
+            <i class="fas fa-phone"></i>
+          </div>
+          <h3>Appelez-nous</h3>
+          <p>Du lundi au samedi<br>9h - 19h</p>
+          <a href="tel:0678442348" class="contact-link">06 78 44 23 48</a>
+        </div>
+        <div class="contact-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="contact-icon">
+            <i class="fas fa-envelope"></i>
+          </div>
+          <h3>Envoyez un email</h3>
+          <p>Réponse garantie<br>sous 24h</p>
+          <a href="mailto:metrpc.pro@outlook.fr" class="contact-link">metrpc.pro@outlook.fr</a>
+        </div>
+        <div class="contact-card" data-aos="fade-up" data-aos-delay="300">
+          <div class="contact-icon">
+            <i class="fas fa-map-marker-alt"></i>
+          </div>
+          <h3>Zone d'intervention</h3>
+          <p>Service à domicile<br>et en atelier</p>
+          <span class="contact-link">Reims et environs</span>
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer>
+  <footer class="footer-modern" data-aos="fade-up">
     <div class="container">
-      <p>&copy; 2025 METRPC</p>
-      <p>
-        <a href="#">Mentions légales</a> | 
-        <a href="cgv.html">Conditions générales de vente</a> | 
-        <a href="#">Politique de confidentialité</a>
-      </p>
+      <div class="footer-content">
+        <div class="footer-brand">
+          <div class="logo-block">
+            <img src="images/Metrpc.png" alt="Logo METRPC" class="logo">
+            <div class="brand-text">
+              <span class="brand">METRPC</span>
+              <span class="tagline">Solutions IT</span>
+            </div>
+          </div>
+          <p>Votre partenaire de confiance pour tous vos besoins informatiques à Reims et ses environs.</p>
+        </div>
+        <div class="footer-links">
+          <div class="footer-section">
+            <h4>Services</h4>
+            <ul>
+              <li><a href="#services">Réparation</a></li>
+              <li><a href="#services">Dépannage</a></li>
+              <li><a href="#services">Installation</a></li>
+              <li><a href="#services">Formation</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h4>Contact</h4>
+            <ul>
+              <li><i class="fas fa-phone"></i> 06 78 44 23 48</li>
+              <li><i class="fas fa-envelope"></i> metrpc.pro@outlook.fr</li>
+              <li><i class="fas fa-map-marker-alt"></i> Reims et environs</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-copyright">
+          <p>&copy; 2025 METRPC - Tous droits réservés</p>
+        </div>
+        <div class="footer-legal">
+          <a href="#">Mentions légales</a>
+          <a href="cgv.html">CGV</a>
+          <a href="#">Confidentialité</a>
+        </div>
+      </div>
     </div>
   </footer>
 
+  <!-- Scroll to top button -->
+  <button id="scrollToTop" class="scroll-to-top" aria-label="Retour en haut">
+    <i class="fas fa-chevron-up"></i>
+  </button>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
   <script src="javascript/script.js"></script>
 </body>
 </html>
