@@ -1112,6 +1112,21 @@
 
 /* Responsive Design */
 @media (max-width: 768px) {
+  /* Footer responsive */
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+  }
+  
+  .footer-legal {
+    justify-content: center;
+  }
   .cgv-hero {
     padding: 3rem 0;
   }
