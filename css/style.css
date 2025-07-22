@@ -681,6 +681,8 @@
   font-weight: 600;
   color: var(--text-dark);
   font-size: 0.95rem;
+  position: relative;
+  z-index: 2;
 }
 
 .form-group input,
