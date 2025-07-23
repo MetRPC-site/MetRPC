@@ -1,0 +1,18 @@
+# Fichiers de configuration
+config_email.php
+
+# Logs
+*.log
+error.log
+
+# Fichiers temporaires
+*.tmp
+*.temp
+
+# Sauvegardes
+*.bak
+*.backup
+
+# Fichiers système
+.DS_Store
+Thumbs.db
