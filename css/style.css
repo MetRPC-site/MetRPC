@@ -806,13 +806,31 @@
 
 .footer-content {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr;
-  gap: 3rem;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  margin-bottom: 3rem;
+}
+
+/* Section principale avec marque et réseaux sociaux */
+.footer-main {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-brand {
   margin-bottom: 2rem;
 }
 
 .footer-brand .logo-block {
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.footer-brand .logo {
+  width: 50px;
+  height: 50px;
 }
 
 .footer-brand .brand-text {
@@ -821,54 +839,207 @@
 }
 
 .footer-brand .brand {
-  font-size: 1.4rem;
-}
-
-.footer-brand .tagline {
-  font-size: 0.8rem;
-  margin-left: 0;
-  opacity: 0.8;
-}
-
-.footer-brand p {
-  color: rgba(255, 255, 255, 0.8);
-  line-height: 1.6;
-}
-
-.footer-section h4 {
-  margin-bottom: 1rem;
+  font-size: 1.8rem;
+  font-weight: 700;
   color: white;
 }
 
-.footer-section ul {
-  list-style: none;
-  padding: 0;
+.footer-brand .tagline {
+  font-size: 0.9rem;
+  opacity: 0.8;
+  font-weight: 400;
 }
 
-.footer-section ul li {
-  margin-bottom: 0.5rem;
+.footer-brand p {
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.6;
+  font-size: 1rem;
+  margin-bottom: 2rem;
 }
 
-.footer-section ul li a,
-.footer-section ul li {
+/* Section réseaux sociaux intégrée à la marque */
+.social-section h4 {
+  color: white;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.social-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
   color: rgba(255, 255, 255, 0.8);
-  transition: var(--transition);
+  text-decoration: none;
+  padding: 0.75rem 1.2rem;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.social-link:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.social-link i {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.social-link span {
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+/* Instagram styling */
+.social-link.instagram:hover {
+  background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+  color: white;
+  border-color: #f09433;
+}
+
+.social-link.instagram:hover i {
+  color: white;
+}
+
+/* Facebook styling */
+.social-link.facebook:hover {
+  background: #1877F2;
+  color: white;
+  border-color: #1877F2;
+}
+
+.social-link.facebook:hover i {
+  color: white;
+}
+
+/* Section informations (services + contact) */
+.footer-info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+}
+
+.footer-section h4 {
+  color: white;
+  font-size: 1.3rem;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
   display: flex;
   align-items: center;
   gap: 0.5rem;
 }
 
-.footer-section ul li a:hover {
-  color: white;
+.footer-section h4 i {
+  color: var(--accent-color);
+  font-size: 1.1rem;
 }
 
-.footer-section ul li i {
-  width: 16px;
+/* Services section */
+.services-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.services-section ul li {
+  margin-bottom: 0.8rem;
+}
+
+.services-section ul li a {
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0;
+  border-radius: 5px;
+}
+
+.services-section ul li a:hover {
+  color: var(--accent-color);
+  padding-left: 0.5rem;
+}
+
+.services-section ul li a i {
+  font-size: 0.7rem;
+  color: var(--accent-color);
+  transition: all 0.3s ease;
+}
+
+/* Contact section */
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.contact-item:hover {
+  background: rgba(255, 255, 255, 0.08);
+  transform: translateY(-1px);
+}
+
+.contact-item i {
+  color: var(--accent-color);
+  font-size: 1.2rem;
+  margin-top: 0.2rem;
+  min-width: 20px;
+}
+
+.contact-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.contact-label {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.6);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 500;
+}
+
+.contact-value {
+  color: white;
+  font-size: 1rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.contact-value:hover {
   color: var(--accent-color);
 }
 
+/* Footer bottom */
 .footer-bottom {
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
   padding-top: 2rem;
   display: flex;
   justify-content: space-between;
@@ -878,23 +1049,28 @@
 }
 
 .footer-copyright p {
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(255, 255, 255, 0.7);
   margin: 0;
+  font-size: 0.9rem;
 }
 
 .footer-legal {
   display: flex;
-  gap: 1rem;
+  gap: 1.5rem;
 }
 
 .footer-legal a {
-  color: rgba(255, 255, 255, 0.8);
-  transition: var(--transition);
-  padding: 0.5rem;
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  font-size: 0.9rem;
 }
 
 .footer-legal a:hover {
-  color: white;
+  color: var(--accent-color);
+  background: rgba(255, 255, 255, 0.05);
 }
 
 /* Social Links */
