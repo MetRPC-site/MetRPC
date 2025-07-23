@@ -1,17 +1,10 @@
 <?php
-// Configuration email - REMPLACEZ PAR VOS VRAIES INFORMATIONS
-$config = [
-    'smtp_host' => 'smtp.gmail.com',
-    'smtp_auth' => true,
-    'smtp_username' => 'votre.email@gmail.com', // REMPLACEZ par votre email Gmail
-    'smtp_password' => 'votre_mot_de_passe_app', // REMPLACEZ par votre mot de passe d'application Gmail
-    'smtp_secure' => 'tls',
-    'smtp_port' => 587,
-    'from_email' => 'votre.email@gmail.com', // REMPLACEZ par votre email Gmail
-    'from_name' => 'METRPC - Formulaire de Devis',
-    'to_email' => 'metrpc.pro@outlook.fr', // Votre email où recevoir les demandes
-    'to_name' => 'METRPC'
-];
+// Chargement sécurisé de la configuration email
+$config_file = __DIR__ . '/config_email.php';
+if (!file_exists($config_file)) {
+    die('Erreur: Fichier de configuration email manquant. Contactez l\'administrateur.');
+}
+$config = require $config_file;
 
 // Vérifier si le formulaire a été soumis
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
