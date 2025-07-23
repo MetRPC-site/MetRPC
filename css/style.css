@@ -974,6 +974,33 @@
   .footer-legal {
     justify-content: center;
   }
+
+  .social-links {
+    flex-direction: row;
+    justify-content: center;
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 1024px) and (min-width: 769px) {
+  .footer-content {
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 2rem;
+  }
+  
+  /* Move social links to contact section on tablet */
+  .footer-section:last-child {
+    grid-column: 2 / 4;
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+  }
+  
+  .social-links {
+    flex-direction: row;
+    gap: 1.5rem;
+    margin-left: 2rem;
+  }
 }
 
 /* Responsive adjustments */
