@@ -3,6 +3,9 @@
 $to = "metrpc.pro@outlook.fr";  // Votre email de réception
 $from = "contact@metrpc.fr";    // Email OVH lié à l'hébergement
 
+// Headers pour AJAX
+header('Content-Type: application/json');
+
 // Vérifier si le formulaire a été soumis
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
@@ -119,165 +122,28 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $CR_Mail = @mail($to, $subject, $mail_Data, $headers);
         
         if ($CR_Mail === FALSE) {
-            $error_message = "Erreur lors de l'envoi de l'email. Veuillez réessayer.";
+            echo json_encode([
+                'status' => 'error',
+                'message' => 'Erreur lors de l\'envoi de l\'email. Veuillez réessayer ou nous contacter par téléphone au 06 78 44 23 48.'
+            ]);
             error_log("Erreur envoi mail devis: " . print_r(error_get_last(), true));
         } else {
-            $success = true;
+            echo json_encode([
+                'status' => 'success',
+                'message' => "Demande envoyée avec succès ! Merci " . htmlspecialchars($nom) . " pour votre demande de devis. Nous vous contacterons rapidement."
+            ]);
         }
+    } else {
+        echo json_encode([
+            'status' => 'error',
+            'message' => 'Erreur dans le formulaire',
+            'errors' => $errors
+        ]);
     }
+} else {
+    echo json_encode([
+        'status' => 'error',
+        'message' => 'Méthode non autorisée'
+    ]);
 }
 ?>
-
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>METRPC - Demande de devis</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/content.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        .message-container {
-            max-width: 800px;
-            margin: 100px auto;
-            padding: 40px;
-            text-align: center;
-        }
-        .success-message {
-            background: linear-gradient(135deg, #4CAF50, #45a049);
-            color: white;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(76, 175, 80, 0.3);
-            margin-bottom: 30px;
-        }
-        .error-message {
-            background: linear-gradient(135deg, #f44336, #da190b);
-            color: white;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(244, 67, 54, 0.3);
-            margin-bottom: 30px;
-        }
-        .message-icon {
-            font-size: 60px;
-            margin-bottom: 20px;
-        }
-        .message-title {
-            font-size: 28px;
-            font-weight: bold;
-            margin-bottom: 15px;
-        }
-        .message-text {
-            font-size: 18px;
-            line-height: 1.6;
-            margin-bottom: 20px;
-        }
-        .back-button {
-            display: inline-block;
-            background: white;
-            color: #667eea;
-            padding: 15px 30px;
-            text-decoration: none;
-            border-radius: 8px;
-            font-weight: bold;
-            transition: all 0.3s ease;
-            margin-top: 20px;
-        }
-        .back-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-        }
-        .error-list {
-            text-align: left;
-            margin: 20px 0;
-        }
-        .error-list li {
-            margin-bottom: 10px;
-            padding-left: 10px;
-        }
-    </style>
-</head>
-<body>
-
-<div class="message-container">
-    <?php if (isset($success) && $success): ?>
-        
-        <!-- Message de succès -->
-        <div class="success-message">
-            <div class="message-icon">
-                <i class="fas fa-check-circle"></i>
-            </div>
-            <div class="message-title">Demande envoyée avec succès !</div>
-            <div class="message-text">
-                Merci <strong><?php echo htmlspecialchars($nom); ?></strong> pour votre demande de devis.<br>
-                Nous avons bien reçu votre demande concernant votre <strong><?php echo htmlspecialchars($typeAppareil); ?></strong>.<br><br>
-                Nous vous contacterons dans les plus brefs délais à l'adresse <strong><?php echo htmlspecialchars($email); ?></strong> 
-                ou au <strong><?php echo htmlspecialchars($telephone); ?></strong> pour établir votre devis personnalisé.
-            </div>
-            <a href="index.html" class="back-button">
-                <i class="fas fa-home"></i> Retour à l'accueil
-            </a>
-        </div>
-        
-    <?php elseif (!empty($errors)): ?>
-        
-        <!-- Message d'erreur de validation -->
-        <div class="error-message">
-            <div class="message-icon">
-                <i class="fas fa-exclamation-triangle"></i>
-            </div>
-            <div class="message-title">Erreur dans le formulaire</div>
-            <div class="message-text">
-                Veuillez corriger les erreurs suivantes :
-                <ul class="error-list">
-                    <?php foreach ($errors as $error): ?>
-                        <li><i class="fas fa-times"></i> <?php echo htmlspecialchars($error); ?></li>
-                    <?php endforeach; ?>
-                </ul>
-            </div>
-            <a href="javascript:history.back()" class="back-button">
-                <i class="fas fa-arrow-left"></i> Retour au formulaire
-            </a>
-        </div>
-        
-    <?php elseif (isset($error_message)): ?>
-        
-        <!-- Message d'erreur technique -->
-        <div class="error-message">
-            <div class="message-icon">
-                <i class="fas fa-exclamation-circle"></i>
-            </div>
-            <div class="message-title">Erreur technique</div>
-            <div class="message-text">
-                Une erreur s'est produite lors de l'envoi de votre demande.<br>
-                Veuillez réessayer ou nous contacter directement par téléphone au <strong>06 78 44 23 48</strong>.
-            </div>
-            <a href="javascript:history.back()" class="back-button">
-                <i class="fas fa-redo"></i> Réessayer
-            </a>
-        </div>
-        
-    <?php else: ?>
-        
-        <!-- Accès direct sans soumission -->
-        <div class="error-message">
-            <div class="message-icon">
-                <i class="fas fa-info-circle"></i>
-            </div>
-            <div class="message-title">Accès non autorisé</div>
-            <div class="message-text">
-                Cette page est destinée au traitement des demandes de devis.<br>
-                Veuillez utiliser le formulaire sur notre page d'accueil.
-            </div>
-            <a href="index.html#devis" class="back-button">
-                <i class="fas fa-edit"></i> Faire une demande de devis
-            </a>
-        </div>
-        
-    <?php endif; ?>
-</div>
-
-</body>
-</html>
