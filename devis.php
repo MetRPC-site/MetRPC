@@ -3,8 +3,8 @@
 $to = "metrpc.pro@outlook.fr";  // Votre email de réception
 $from = "contact@metrpc.fr";    // Email OVH lié à l'hébergement
 
-// Headers pour AJAX
-header('Content-Type: application/json');
+// Vérifier si c'est une requête AJAX
+$isAjax = !empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest';
 
 // Vérifier si le formulaire a été soumis
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -122,28 +122,53 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $CR_Mail = @mail($to, $subject, $mail_Data, $headers);
         
         if ($CR_Mail === FALSE) {
-            echo json_encode([
-                'status' => 'error',
-                'message' => 'Erreur lors de l\'envoi de l\'email. Veuillez réessayer ou nous contacter par téléphone au 06 78 44 23 48.'
-            ]);
+            if ($isAjax) {
+                header('Content-Type: application/json');
+                echo json_encode([
+                    'status' => 'error',
+                    'message' => 'Erreur lors de l\'envoi de l\'email. Veuillez réessayer ou nous contacter par téléphone au 06 78 44 23 48.'
+                ]);
+            } else {
+                $error_message = 'Erreur lors de l\'envoi de l\'email. Veuillez réessayer ou nous contacter par téléphone au 06 78 44 23 48.';
+            }
             error_log("Erreur envoi mail devis: " . print_r(error_get_last(), true));
         } else {
-            echo json_encode([
-                'status' => 'success',
-                'message' => "Demande envoyée avec succès ! Merci " . htmlspecialchars($nom) . " pour votre demande de devis. Nous vous contacterons rapidement."
-            ]);
+            if ($isAjax) {
+                header('Content-Type: application/json');
+                echo json_encode([
+                    'status' => 'success',
+                    'message' => "Demande envoyée avec succès ! Merci " . htmlspecialchars($nom) . " pour votre demande de devis. Nous vous contacterons rapidement."
+                ]);
+            } else {
+                $success = true;
+            }
         }
     } else {
-        echo json_encode([
-            'status' => 'error',
-            'message' => 'Erreur dans le formulaire',
-            'errors' => $errors
-        ]);
+        if ($isAjax) {
+            header('Content-Type: application/json');
+            echo json_encode([
+                'status' => 'error',
+                'message' => 'Erreur dans le formulaire',
+                'errors' => $errors
+            ]);
+        } else {
+            // $errors est déjà défini pour l'affichage HTML
+        }
+    }
+    
+    // Si c'est AJAX, on s'arrête ici
+    if ($isAjax) {
+        exit;
     }
 } else {
-    echo json_encode([
-        'status' => 'error',
-        'message' => 'Méthode non autorisée'
-    ]);
+    // Accès direct sans POST
+    if ($isAjax) {
+        header('Content-Type: application/json');
+        echo json_encode([
+            'status' => 'error',
+            'message' => 'Méthode non autorisée'
+        ]);
+        exit;
+    }
 }
 ?>
