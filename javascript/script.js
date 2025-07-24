@@ -160,7 +160,10 @@ if (quoteForm) {
     // Send via AJAX to devis.php
     fetch('devis.php', {
       method: 'POST',
-      body: formData
+      body: formData,
+      headers: {
+        'X-Requested-With': 'XMLHttpRequest'
+      }
     })
     .then(response => {
       if (!response.ok) {
