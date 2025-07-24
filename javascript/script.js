@@ -132,8 +132,6 @@ if (quoteForm) {
 
   // Form submission with loading state
   quoteForm.addEventListener('submit', function(e) {
-    e.preventDefault();
-    
     const submitBtn = this.querySelector('button[type="submit"]');
     const originalText = submitBtn.innerHTML;
     
@@ -146,27 +144,16 @@ if (quoteForm) {
     });
 
     if (!isValid) {
+      e.preventDefault(); // Empêcher la soumission seulement si invalide
       showNotification('Veuillez corriger les erreurs dans le formulaire.', 'error');
       return;
     }
 
-    // Show loading state
+    // Si tout est valide, afficher l'état de chargement et laisser le formulaire se soumettre
     submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Envoi en cours...';
     submitBtn.disabled = true;
-
-    // Simulate form submission (replace with actual form submission)
-    setTimeout(() => {
-      showNotification('Votre demande de devis a été envoyée avec succès !', 'success');
-      this.reset();
-      inputs.forEach(input => {
-        input.classList.remove('has-value');
-        input.parentElement.classList.remove('error');
-      });
-      
-      // Reset button
-      submitBtn.innerHTML = originalText;
-      submitBtn.disabled = false;
-    }, 2000);
+    
+    // Le formulaire va maintenant se soumettre naturellement vers devis.php
   });
 }
 
