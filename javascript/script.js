@@ -188,7 +188,10 @@ if (quoteForm) {
       // Fallback: essayer avec l'ancienne méthode (réponse HTML)
       fetch('devis.php', {
         method: 'POST',
-        body: formData
+        body: formData,
+        headers: {
+          'X-Requested-With': 'XMLHttpRequest'
+        }
       })
       .then(response => response.text())
       .then(data => {
