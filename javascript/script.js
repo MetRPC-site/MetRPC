@@ -100,8 +100,11 @@ if (scrollToTopBtn) {
 
 // Enhanced form handling with validation
 const quoteForm = document.querySelector('.quote-form');
+console.log('🔍 Formulaire trouvé:', quoteForm);
+
 if (quoteForm) {
   const inputs = quoteForm.querySelectorAll('input, select, textarea');
+  console.log('📝 Inputs trouvés:', inputs.length);
   
   // Add floating label effect
   inputs.forEach(input => {
@@ -132,10 +135,13 @@ if (quoteForm) {
 
   // Form submission with AJAX
   quoteForm.addEventListener('submit', function(e) {
+    console.log('🚀 Soumission formulaire interceptée !');
     e.preventDefault(); // On intercepte pour utiliser AJAX
     
     const submitBtn = this.querySelector('button[type="submit"]');
     const originalText = submitBtn.innerHTML;
+    
+    console.log('✅ Prévention de la soumission normale réussie');
     
     // Validate all fields
     let isValid = true;
@@ -146,9 +152,12 @@ if (quoteForm) {
     });
 
     if (!isValid) {
+      console.log('❌ Validation échouée');
       showNotification('Veuillez corriger les erreurs dans le formulaire.', 'error');
       return;
     }
+
+    console.log('✅ Validation réussie, envoi AJAX...');
 
     // Show loading state
     submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Envoi en cours...';
@@ -158,6 +167,7 @@ if (quoteForm) {
     const formData = new FormData(this);
 
     // Send via AJAX to devis.php
+    console.log('📡 Envoi AJAX vers devis.php...');
     fetch('devis.php', {
       method: 'POST',
       body: formData,
@@ -166,13 +176,16 @@ if (quoteForm) {
       }
     })
     .then(response => {
+      console.log('📥 Réponse reçue:', response.status);
       if (!response.ok) {
         throw new Error('Erreur réseau');
       }
       return response.json();
     })
     .then(data => {
+      console.log('📊 Données JSON reçues:', data);
       if (data.status === 'success') {
+        console.log('🎉 Succès, affichage notification');
         showNotification(data.message, 'success');
         this.reset();
         inputs.forEach(input => {
@@ -180,12 +193,14 @@ if (quoteForm) {
           input.parentElement.classList.remove('error');
         });
       } else {
+        console.log('⚠️ Erreur dans la réponse');
         showNotification(data.message, 'error');
       }
     })
     .catch(error => {
-      console.error('Erreur:', error);
+      console.error('💥 Erreur AJAX:', error);
       // Fallback: essayer avec l'ancienne méthode (réponse HTML)
+      console.log('🔄 Essai fallback...');
       fetch('devis.php', {
         method: 'POST',
         body: formData,
@@ -195,7 +210,9 @@ if (quoteForm) {
       })
       .then(response => response.text())
       .then(data => {
+        console.log('📄 Réponse HTML fallback reçue');
         if (data.includes('success') || data.includes('envoyée avec succès')) {
+          console.log('✅ Succès détecté dans HTML');
           showNotification('Votre demande de devis a été envoyée avec succès !', 'success');
           this.reset();
           inputs.forEach(input => {
@@ -203,20 +220,24 @@ if (quoteForm) {
             input.parentElement.classList.remove('error');
           });
         } else {
+          console.log('❌ Échec détecté dans HTML');
           showNotification('Une erreur est survenue lors de l\'envoi. Veuillez réessayer ou nous contacter par téléphone au 06 78 44 23 48.', 'error');
         }
       })
       .catch(fallbackError => {
-        console.error('Erreur fallback:', fallbackError);
+        console.error('💥 Erreur fallback:', fallbackError);
         showNotification('Une erreur est survenue lors de l\'envoi. Veuillez réessayer ou nous contacter par téléphone au 06 78 44 23 48.', 'error');
       });
     })
     .finally(() => {
+      console.log('🔄 Remise à zéro du bouton');
       // Reset button state
       submitBtn.innerHTML = originalText;
       submitBtn.disabled = false;
     });
   });
+} else {
+  console.error('❌ Formulaire .quote-form non trouvé !');
 }
 
 // Field validation function
