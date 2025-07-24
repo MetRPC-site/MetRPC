@@ -136,7 +136,18 @@ if (quoteForm) {
   // Form submission with AJAX
   quoteForm.addEventListener('submit', function(e) {
     console.log('🚀 Soumission formulaire interceptée !');
-    e.preventDefault(); // On intercepte pour utiliser AJAX
+    
+    // Vérifier si on est en local (file://) ou sur serveur
+    const isLocalFile = window.location.protocol === 'file:';
+    
+    if (isLocalFile) {
+      console.log('📁 Mode local détecté - soumission classique');
+      // En local, laisser la soumission classique pour tester
+      return true;
+    }
+    
+    e.preventDefault(); // Intercepter seulement sur serveur web
+    console.log('🌐 Mode serveur détecté - AJAX activé');
     
     const submitBtn = this.querySelector('button[type="submit"]');
     const originalText = submitBtn.innerHTML;
