@@ -162,30 +162,48 @@ if (quoteForm) {
       method: 'POST',
       body: formData
     })
-    .then(response => response.text())
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Erreur réseau');
+      }
+      return response.json();
+    })
     .then(data => {
-      // Check if response contains success indicator
-      if (data.includes('Demande envoyée avec succès')) {
-        showNotification('Votre demande de devis a été envoyée avec succès !', 'success');
+      if (data.status === 'success') {
+        showNotification(data.message, 'success');
         this.reset();
         inputs.forEach(input => {
           input.classList.remove('has-value');
           input.parentElement.classList.remove('error');
         });
-      } else if (data.includes('Erreur dans le formulaire')) {
-        showNotification('Veuillez vérifier les informations saisies dans le formulaire.', 'error');
       } else {
-        showNotification('Votre demande de devis a été envoyée avec succès !', 'success');
-        this.reset();
-        inputs.forEach(input => {
-          input.classList.remove('has-value');
-          input.parentElement.classList.remove('error');
-        });
+        showNotification(data.message, 'error');
       }
     })
     .catch(error => {
       console.error('Erreur:', error);
-      showNotification('Une erreur est survenue lors de l\'envoi. Veuillez réessayer ou nous contacter par téléphone.', 'error');
+      // Fallback: essayer avec l'ancienne méthode (réponse HTML)
+      fetch('devis.php', {
+        method: 'POST',
+        body: formData
+      })
+      .then(response => response.text())
+      .then(data => {
+        if (data.includes('success') || data.includes('envoyée avec succès')) {
+          showNotification('Votre demande de devis a été envoyée avec succès !', 'success');
+          this.reset();
+          inputs.forEach(input => {
+            input.classList.remove('has-value');
+            input.parentElement.classList.remove('error');
+          });
+        } else {
+          showNotification('Une erreur est survenue lors de l\'envoi. Veuillez réessayer ou nous contacter par téléphone au 06 78 44 23 48.', 'error');
+        }
+      })
+      .catch(fallbackError => {
+        console.error('Erreur fallback:', fallbackError);
+        showNotification('Une erreur est survenue lors de l\'envoi. Veuillez réessayer ou nous contacter par téléphone au 06 78 44 23 48.', 'error');
+      });
     })
     .finally(() => {
       // Reset button state
