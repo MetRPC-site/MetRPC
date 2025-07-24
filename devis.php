@@ -1,10 +1,7 @@
 <?php
-// Chargement sécurisé de la configuration email
-$config_file = __DIR__ . '/config_email.php';
-if (!file_exists($config_file)) {
-    die('Erreur: Fichier de configuration email manquant. Contactez l\'administrateur.');
-}
-$config = require $config_file;
+// Configuration email pour OVH
+$to = "metrpc.pro@outlook.fr";  // Votre email de réception
+$from = "contact@metrpc.fr";    // Email OVH lié à l'hébergement
 
 // Vérifier si le formulaire a été soumis
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -42,125 +39,91 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Si pas d'erreurs, envoyer l'email
     if (empty($errors)) {
         
-        // Inclure PHPMailer (vous devrez télécharger PHPMailer)
-        // Pour télécharger PHPMailer : https://github.com/PHPMailer/PHPMailer
-        require_once 'vendor/autoload.php'; // Si installé via Composer
-        // OU
-        // require_once 'PHPMailer/src/PHPMailer.php';
-        // require_once 'PHPMailer/src/SMTP.php';
-        // require_once 'PHPMailer/src/Exception.php';
+        // Informations de l'email
+        $JOUR = date("Y-m-d");
+        $HEURE = date("H:i");
         
-        use PHPMailer\PHPMailer\PHPMailer;
-        use PHPMailer\PHPMailer\SMTP;
-        use PHPMailer\PHPMailer\Exception;
+        $subject = "Nouvelle demande de devis METRPC - $JOUR $HEURE";
         
-        $mail = new PHPMailer(true);
+        // Contenu HTML de l'email
+        $mail_Data = "";
+        $mail_Data .= "<html>\n";
+        $mail_Data .= "<head>\n";
+        $mail_Data .= "<title>Demande de devis METRPC</title>\n";
+        $mail_Data .= "<style>\n";
+        $mail_Data .= "body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }\n";
+        $mail_Data .= ".container { max-width: 600px; margin: 0 auto; padding: 20px; }\n";
+        $mail_Data .= ".header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 20px; text-align: center; border-radius: 8px 8px 0 0; }\n";
+        $mail_Data .= ".content { background: #f8f9fa; padding: 30px; border-radius: 0 0 8px 8px; }\n";
+        $mail_Data .= ".field { margin-bottom: 20px; padding: 15px; background: white; border-radius: 5px; border-left: 4px solid #667eea; }\n";
+        $mail_Data .= ".field-label { font-weight: bold; color: #667eea; margin-bottom: 5px; }\n";
+        $mail_Data .= ".field-value { color: #333; }\n";
+        $mail_Data .= ".footer { margin-top: 20px; padding: 15px; text-align: center; font-size: 12px; color: #666; }\n";
+        $mail_Data .= "</style>\n";
+        $mail_Data .= "</head>\n";
+        $mail_Data .= "<body>\n";
+        $mail_Data .= "<div class='container'>\n";
+        $mail_Data .= "  <div class='header'>\n";
+        $mail_Data .= "    <h1>📧 Nouvelle demande de devis</h1>\n";
+        $mail_Data .= "    <p>METRPC - Réparation Informatique</p>\n";
+        $mail_Data .= "  </div>\n";
+        $mail_Data .= "  <div class='content'>\n";
+        $mail_Data .= "    <p>Vous avez reçu une nouvelle demande de devis via votre site web :</p>\n";
         
-        try {
-            // Configuration du serveur SMTP
-            $mail->isSMTP();
-            $mail->Host = $config['smtp_host'];
-            $mail->SMTPAuth = $config['smtp_auth'];
-            $mail->Username = $config['smtp_username'];
-            $mail->Password = $config['smtp_password'];
-            $mail->SMTPSecure = $config['smtp_secure'];
-            $mail->Port = $config['smtp_port'];
-            
-            // Configuration de l'email
-            $mail->setFrom($config['from_email'], $config['from_name']);
-            $mail->addAddress($config['to_email'], $config['to_name']);
-            $mail->addReplyTo($email, $nom); // Pour pouvoir répondre directement au client
-            
-            // Contenu de l'email
-            $mail->isHTML(true);
-            $mail->CharSet = 'UTF-8';
-            $mail->Subject = 'Nouvelle demande de devis - METRPC';
-            
-            // Corps de l'email en HTML
-            $mailBody = "
-            <!DOCTYPE html>
-            <html>
-            <head>
-                <meta charset='UTF-8'>
-                <style>
-                    body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
-                    .container { max-width: 600px; margin: 0 auto; padding: 20px; }
-                    .header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 20px; text-align: center; border-radius: 8px 8px 0 0; }
-                    .content { background: #f8f9fa; padding: 30px; border-radius: 0 0 8px 8px; }
-                    .field { margin-bottom: 20px; padding: 15px; background: white; border-radius: 5px; border-left: 4px solid #667eea; }
-                    .field-label { font-weight: bold; color: #667eea; margin-bottom: 5px; }
-                    .field-value { color: #333; }
-                    .footer { margin-top: 20px; padding: 15px; text-align: center; font-size: 12px; color: #666; }
-                </style>
-            </head>
-            <body>
-                <div class='container'>
-                    <div class='header'>
-                        <h1>📧 Nouvelle demande de devis</h1>
-                        <p>METRPC - Réparation Informatique</p>
-                    </div>
-                    <div class='content'>
-                        <p>Vous avez reçu une nouvelle demande de devis via votre site web :</p>
-                        
-                        <div class='field'>
-                            <div class='field-label'>👤 Nom complet :</div>
-                            <div class='field-value'>" . htmlspecialchars($nom) . "</div>
-                        </div>
-                        
-                        <div class='field'>
-                            <div class='field-label'>📧 Adresse email :</div>
-                            <div class='field-value'>" . htmlspecialchars($email) . "</div>
-                        </div>
-                        
-                        <div class='field'>
-                            <div class='field-label'>📞 Numéro de téléphone :</div>
-                            <div class='field-value'>" . htmlspecialchars($telephone) . "</div>
-                        </div>
-                        
-                        <div class='field'>
-                            <div class='field-label'>💻 Type d'appareil :</div>
-                            <div class='field-value'>" . htmlspecialchars($typeAppareil) . "</div>
-                        </div>
-                        
-                        <div class='field'>
-                            <div class='field-label'>🔧 Description du problème :</div>
-                            <div class='field-value'>" . nl2br(htmlspecialchars($probleme)) . "</div>
-                        </div>
-                        
-                        <div class='footer'>
-                            <p>📅 Demande reçue le : " . date('d/m/Y à H:i:s') . "</p>
-                            <p>💡 Vous pouvez répondre directement à cet email pour contacter le client.</p>
-                        </div>
-                    </div>
-                </div>
-            </body>
-            </html>";
-            
-            $mail->Body = $mailBody;
-            
-            // Version texte alternative
-            $mail->AltBody = "
-Nouvelle demande de devis - METRPC
-
-Nom: $nom
-Email: $email
-Téléphone: $telephone
-Type d'appareil: $typeAppareil
-Problème: $probleme
-
-Demande reçue le: " . date('d/m/Y à H:i:s');
-            
-            // Envoyer l'email
-            $mail->send();
-            
-            // Redirection vers une page de succès ou message de confirmation
+        $mail_Data .= "    <div class='field'>\n";
+        $mail_Data .= "      <div class='field-label'>👤 Nom complet :</div>\n";
+        $mail_Data .= "      <div class='field-value'>" . htmlspecialchars($nom) . "</div>\n";
+        $mail_Data .= "    </div>\n";
+        
+        $mail_Data .= "    <div class='field'>\n";
+        $mail_Data .= "      <div class='field-label'>📧 Adresse email :</div>\n";
+        $mail_Data .= "      <div class='field-value'>" . htmlspecialchars($email) . "</div>\n";
+        $mail_Data .= "    </div>\n";
+        
+        $mail_Data .= "    <div class='field'>\n";
+        $mail_Data .= "      <div class='field-label'>📞 Numéro de téléphone :</div>\n";
+        $mail_Data .= "      <div class='field-value'>" . htmlspecialchars($telephone) . "</div>\n";
+        $mail_Data .= "    </div>\n";
+        
+        $mail_Data .= "    <div class='field'>\n";
+        $mail_Data .= "      <div class='field-label'>💻 Type d'appareil :</div>\n";
+        $mail_Data .= "      <div class='field-value'>" . htmlspecialchars($typeAppareil) . "</div>\n";
+        $mail_Data .= "    </div>\n";
+        
+        $mail_Data .= "    <div class='field'>\n";
+        $mail_Data .= "      <div class='field-label'>🔧 Description du problème :</div>\n";
+        $mail_Data .= "      <div class='field-value'>" . nl2br(htmlspecialchars($probleme)) . "</div>\n";
+        $mail_Data .= "    </div>\n";
+        
+        $mail_Data .= "    <div class='footer'>\n";
+        $mail_Data .= "      <p>📅 Demande reçue le : $JOUR à $HEURE</p>\n";
+        $mail_Data .= "      <p>💡 Vous pouvez répondre directement à cet email pour contacter le client.</p>\n";
+        $mail_Data .= "    </div>\n";
+        $mail_Data .= "  </div>\n";
+        $mail_Data .= "</div>\n";
+        $mail_Data .= "</body>\n";
+        $mail_Data .= "</html>\n";
+        
+        // Headers de l'email
+        $headers = "MIME-Version: 1.0\n";
+        $headers .= "Content-type: text/html; charset=utf-8\n";
+        $headers .= "From: $from\n";
+        $headers .= "Reply-To: $email\n"; // Pour pouvoir répondre directement au client
+        $headers .= "Disposition-Notification-To: $from\n";
+        
+        // Message de priorité haute
+        $headers .= "X-Priority: 1\n";
+        $headers .= "X-MSMail-Priority: High\n";
+        
+        // Tentative d'envoi
+        $CR_Mail = @mail($to, $subject, $mail_Data, $headers);
+        
+        if ($CR_Mail === FALSE) {
+            $error_message = "Erreur lors de l'envoi de l'email. Veuillez réessayer.";
+            error_log("Erreur envoi mail devis: " . print_r(error_get_last(), true));
+        } else {
             $success = true;
-            
-        } catch (Exception $e) {
-            $error_message = "Erreur lors de l'envoi de l'email: " . $mail->ErrorInfo;
-            error_log($error_message); // Log l'erreur
         }
-        
     }
 }
 ?>
