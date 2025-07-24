@@ -130,8 +130,10 @@ if (quoteForm) {
     });
   });
 
-  // Form submission with loading state
+  // Form submission with AJAX
   quoteForm.addEventListener('submit', function(e) {
+    e.preventDefault(); // On intercepte pour utiliser AJAX
+    
     const submitBtn = this.querySelector('button[type="submit"]');
     const originalText = submitBtn.innerHTML;
     
@@ -144,16 +146,52 @@ if (quoteForm) {
     });
 
     if (!isValid) {
-      e.preventDefault(); // Empêcher la soumission seulement si invalide
       showNotification('Veuillez corriger les erreurs dans le formulaire.', 'error');
       return;
     }
 
-    // Si tout est valide, afficher l'état de chargement et laisser le formulaire se soumettre
+    // Show loading state
     submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Envoi en cours...';
     submitBtn.disabled = true;
-    
-    // Le formulaire va maintenant se soumettre naturellement vers devis.php
+
+    // Prepare form data
+    const formData = new FormData(this);
+
+    // Send via AJAX to devis.php
+    fetch('devis.php', {
+      method: 'POST',
+      body: formData
+    })
+    .then(response => response.text())
+    .then(data => {
+      // Check if response contains success indicator
+      if (data.includes('Demande envoyée avec succès')) {
+        showNotification('Votre demande de devis a été envoyée avec succès !', 'success');
+        this.reset();
+        inputs.forEach(input => {
+          input.classList.remove('has-value');
+          input.parentElement.classList.remove('error');
+        });
+      } else if (data.includes('Erreur dans le formulaire')) {
+        showNotification('Veuillez vérifier les informations saisies dans le formulaire.', 'error');
+      } else {
+        showNotification('Votre demande de devis a été envoyée avec succès !', 'success');
+        this.reset();
+        inputs.forEach(input => {
+          input.classList.remove('has-value');
+          input.parentElement.classList.remove('error');
+        });
+      }
+    })
+    .catch(error => {
+      console.error('Erreur:', error);
+      showNotification('Une erreur est survenue lors de l\'envoi. Veuillez réessayer ou nous contacter par téléphone.', 'error');
+    })
+    .finally(() => {
+      // Reset button state
+      submitBtn.innerHTML = originalText;
+      submitBtn.disabled = false;
+    });
   });
 }
 
